@@ -1,16 +1,10 @@
 # Programación de Microcontroladores
 
 Este repositorio contiene los archivos y documentación relacionada con la cursada de Programación de Microcontroladores, que forma parte de la Especialización en Sistemas Embebidos de la UBA (Universidad de Buenos Aires). En este curso, se abordan los fundamentos y técnicas de programación específicas para microcontroladores.
-
-## Autora
-
-- **Ingeniera Karenn Tatiana Zamudio** - Graduada de la Universidad Distrital
-
-## Introducción
-
 La programación de microcontroladores es una disciplina que se enfoca en el desarrollo de software para controlar y gestionar dispositivos electrónicos embebidos. Esta disciplina es fundamental en el campo de los sistemas embebidos, donde los microcontroladores desempeñan un papel crucial en numerosas aplicaciones, desde electrodomésticos hasta automóviles y sistemas industriales.
+![image](https://github.com/Kzamudioq/PdM_workspace/assets/138271936/ae6fbe42-557b-412c-a7ba-d03c824477c5)
 
-## Placas y Entorno de Desarrollo
+
 
 Durante el curso, utilizaremos las siguientes placas y entorno de desarrollo:
 
@@ -19,7 +13,8 @@ Durante el curso, utilizaremos las siguientes placas y entorno de desarrollo:
 La placa STM32CubeIDE + NUCLEO-F401RE es una combinación ampliamente utilizada en la industria para el desarrollo de aplicaciones basadas en microcontroladores STM32. Proporciona una amplia gama de características y recursos para facilitar el proceso de desarrollo.
 Placa de desarrollo contiene un microcontrolador ARM Cortex M4 de 32 bit y 512 kB de memoria Flash. Reducción del consumo de corriente en “run mode”.  Proporciona headers compatibles con Arduino permitiendo extender las funcionabilidades de la placa y una mayor interacción con la plataforma de desarrollo de STM32. Genera su propio COM virtual al integrar un depurador/ programador ST-Link. Ideal para cualquier tipo de proyectos que integren sensores, actuadores y procesamiento, potenciados con librerías de código abierto de SMT32Cube.
 
-![STM32CubeIDE + NUCLEO-F401RE](https://github.com/Kzamudioq/PdM_workspace/assets/138271936/c26b0bcd-cc81-4157-b712-4329a4555786)
+![STM32CubeIDE + NUCLEO-F401RE](https://github.com/Kzamudioq/PdM_workspace/assets/138271936/0d70e67f-2a36-4a37-a2ee-82fa1b41c6f5)
+
 
 
 ### 2. STM32CubeIDE
@@ -43,3 +38,7 @@ A continuación, se encuentran los enlaces a las prácticas realizadas durante e
 3. [Práctica 3](https://github.com/Kzamudioq/PdM_workspace/tree/main/Practica%203)
 
 Estos enlaces te llevarán a los respectivos repositorios donde encontrarás los archivos y detalles de cada práctica.
+
+## Autora
+
+- **Ingeniera Karenn Tatiana Zamudio** - Graduada de la Universidad Distrital
