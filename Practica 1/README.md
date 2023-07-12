@@ -14,12 +14,16 @@ Implementar un programa que genere la secuencia descrita anteriormente.
 
 Ejemplo de secuencia: Led1(ON) 200ms, Leds(OFF) 200ms, Led2(ON) 200ms, Leds(OFF) 200ms, Led3(ON) 200ms, Leds(OFF) 200ms, Led1(ON) 200ms, Leds(OFF) 200ms, etc.
 
+Puedes encontrar el código y los detalles de la implementación en [este enlace](https://github.com/Kzamudioq/PdM_workspace/tree/main/Practica%201/Practica%201.1).
+
 ### Punto 2
 
 Utilizar el pulsador azul (USER_BUTTON) para controlar cómo se recorre la secuencia de LEDs. Cada vez que se presiona el pulsador, se debe alternar el orden de la secuencia entre:
 
 - LED1, LED2, LED3, LED1, etc.
 - LED1, LED3, LED2, LED1, etc.
+
+Puedes encontrar el código y los detalles de la implementación en [este enlace](https://github.com/Kzamudioq/PdM_workspace/tree/main/Practica%201/Practica%201.2).
 
 ¡Diviértete programando los LEDs y experimentando con diferentes secuencias!
 
