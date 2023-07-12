@@ -1,6 +1,7 @@
 # Programación de Microcontroladores (PdM)
 
-![Portada](https://blogs.ugto.mx/rea/wp-content/uploads/sites/71/2022/08/pfr18jnemv8.jpg)
+![Portada](https://github.com/Kzamudioq/PdM_workspace/assets/138271936/39b9383a-15ff-4a1d-9458-1be9266375c7)
+
 
 Este repositorio contiene los archivos y documentación relacionada con la cursada de Programación de Microcontroladores, que forma parte de la Especialización en Sistemas Embebidos de la UBA (Universidad de Buenos Aires). En este curso, se abordan los fundamentos y técnicas de programación específicas para microcontroladores.
 
