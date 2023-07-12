@@ -16,7 +16,8 @@ Durante el curso, utilizaremos las siguientes placas y entorno de desarrollo:
 
 La placa STM32CubeIDE + NUCLEO-F401RE es una combinación ampliamente utilizada en la industria para el desarrollo de aplicaciones basadas en microcontroladores STM32. Proporciona una amplia gama de características y recursos para facilitar el proceso de desarrollo.
 
-![STM32CubeIDE + NUCLEO-F401RE](![image](https://github.com/Kzamudioq/PdM_workspace/assets/138271936/fb50f5d8-3063-462c-bbb1-fceafaa11f2e)
+![STM32CubeIDE + NUCLEO-F401RE](https://github.com/Kzamudioq/PdM_workspace/assets/138271936/07f80eda-43ef-4bd6-85db-c82a6a8eb2cb)
+
 )
 
 ### 2. STM32CubeIDE
