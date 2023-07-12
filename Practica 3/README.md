@@ -1,12 +1,9 @@
 # Programación de Microcontroladores
 
+![Portada](https://blogs.ugto.mx/rea/wp-content/uploads/sites/71/2022/08/pfr18jnemv8.jpg)
+
 Este repositorio contiene los archivos y documentación relacionada con la cursada de Programación de Microcontroladores, que forma parte de la Especialización en Sistemas Embebidos de la UBA (Universidad de Buenos Aires). En este curso, se abordan los fundamentos y técnicas de programación específicas para microcontroladores.
 La programación de microcontroladores es una disciplina que se enfoca en el desarrollo de software para controlar y gestionar dispositivos electrónicos embebidos. Esta disciplina es fundamental en el campo de los sistemas embebidos, donde los microcontroladores desempeñan un papel crucial en numerosas aplicaciones, desde electrodomésticos hasta automóviles y sistemas industriales.
-![image](https://github.com/Kzamudioq/PdM_workspace/assets/138271936/ae6fbe42-557b-412c-a7ba-d03c824477c5)
-![image](https://github.com/Kzamudioq/PdM_workspace/assets/138271936/c146f7d0-a00b-4a70-a525-0c1302859b8a)
-
-
-
 
 Durante el curso, utilizaremos las siguientes placas y entorno de desarrollo:
 
