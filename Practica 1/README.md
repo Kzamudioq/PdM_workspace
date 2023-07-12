@@ -6,7 +6,7 @@ En esta práctica, el objetivo es familiarizarse con el entorno de trabajo STM32
 
 ## Objetivo
 
-El objetivo de esta práctica es implementar un programa que genere una secuencia periódica con los LEDs de la placa NUCLEO-F429ZI. La secuencia debe seguir el orden: LED1, LED2, LED3, LED1, etc. Cada LED debe permanecer encendido durante 200 ms y no debe encenderse más de un LED simultáneamente. Además, debe haber una separación temporal de 200 ms entre las encendidas sucesivas.
+El objetivo de esta práctica es implementar un programa que genere una secuencia periódica con los LEDs de la placa NUCLEO-F401RE. La secuencia debe seguir el orden: LED1, LED2, LED3, LED1, etc. Cada LED debe permanecer encendido durante 200 ms y no debe encenderse más de un LED simultáneamente. Además, debe haber una separación temporal de 200 ms entre las encendidas sucesivas.
 
 ### Punto 1
 
