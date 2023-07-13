@@ -31,5 +31,19 @@ La estructura del repositorio se organiza de esta manera para separar las config
 
 El archivo `STM32F401RETX_RAM.ld` es un script de enlace (linker script) que define la configuración de memoria RAM para el proyecto. Proporciona información sobre la asignación y disposición de la memoria RAM del microcontrolador STM32F401RETX utilizado en la placa NUCLEO-F401RE.
 
+## main.c
+
+El archivo `main.c` se encuentra en la carpeta `Core`. Contiene la función `main()`, que se ejecuta al iniciar el programa. Aquí se encuentra la lógica principal de la práctica. Algunas funciones importantes incluidas en `main.c` son:
+
+- `setup()`: Esta función se encarga de la configuración inicial del microcontrolador y los periféricos utilizados en la práctica. Aquí se inicializan los pines, los temporizadores, las interrupciones, etc.
+- `loop()`: Esta función se ejecuta en un bucle continuo después de la configuración inicial. Aquí se coloca la lógica principal de la práctica, incluyendo la lectura de sensores, el procesamiento de datos y el control de los actuadores.
+- `delay(ms)`: Esta función se utiliza para introducir una pausa en la ejecución del programa durante un tiempo determinado en milisegundos. Se puede utilizar para crear retardos o establecer intervalos de tiempo entre operaciones.
+
+## main.h
+
+El archivo `main.h` se encuentra en la carpeta `Core`. Es un archivo de encabezado (header file) que contiene las declaraciones de las funciones y variables utilizadas en `main.c` y otros archivos del proyecto. Aquí se definen los prototipos de las funciones principales y las variables globales utilizadas en el proyecto.
+
+La estructura del repositorio se organiza de esta manera para separar las configuraciones del entorno, los archivos esenciales del proyecto, los controladores del microcontrolador STM32 y los archivos de configuración específicos de la práctica. Esto ayuda a mantener el código ordenado y facilita la navegación y comprensión del proyecto.
+
 ¡Diviértete programando los LEDs y experimentando con diferentes secuencias!
 
