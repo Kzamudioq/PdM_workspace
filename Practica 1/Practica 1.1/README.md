@@ -39,6 +39,34 @@ El archivo `main.c` se encuentra en la carpeta `Core`. Contiene la función `mai
 - `loop()`: Esta función se ejecuta en un bucle continuo después de la configuración inicial. Aquí se coloca la lógica principal de la práctica, incluyendo la lectura de sensores, el procesamiento de datos y el control de los actuadores.
 - `delay(ms)`: Esta función se utiliza para introducir una pausa en la ejecución del programa durante un tiempo determinado en milisegundos. Se puede utilizar para crear retardos o establecer intervalos de tiempo entre operaciones.
 
+En el bucle principal (`while (1)`), el programa realiza el parpadeo de los LEDs LD1, LD2 y LD3 en intervalos de 200 ms. El código más importante en el bucle principal es el siguiente:
+
+```c
+while (1)
+{
+  // Parpadeo del LED LD1
+  HAL_GPIO_WritePin(LD1_GPIO_Port, LD1_Pin, GPIO_PIN_SET);
+  HAL_Delay(200);
+  HAL_GPIO_WritePin(LD1_GPIO_Port, LD1_Pin, GPIO_PIN_RESET);
+  HAL_Delay(200);
+  
+  // Parpadeo del LED LD2
+  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);
+  HAL_Delay(200);
+  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
+  HAL_Delay(200);
+  
+  // Parpadeo del LED LD3
+  HAL_GPIO_WritePin(LD3_GPIO_Port, LD3_Pin, GPIO_PIN_SET);
+  HAL_Delay(200);
+  HAL_GPIO_WritePin(LD3_GPIO_Port, LD3_Pin, GPIO_PIN_RESET);
+  HAL_Delay(200);
+}
+```
+En cada iteración del bucle, se enciende y apaga secuencialmente cada LED (LD1, LD2 y LD3) en intervalos de 200 ms. Esto se logra utilizando las funciones HAL_GPIO_WritePin() para establecer el estado del pin del LED y HAL_Delay() para pausar el programa durante el intervalo de tiempo especificado.
+
+La secuencia de parpadeo se repite continuamente mientras el programa está en funcionamiento debido a que el bucle principal tiene una condición while (1) que siempre es verdadera.
+
 ## main.h
 
 El archivo `main.h` se encuentra en la carpeta `Core`. Es un archivo de encabezado (header file) que contiene las declaraciones de las funciones y variables utilizadas en `main.c` y otros archivos del proyecto. Aquí se definen los prototipos de las funciones principales y las variables globales utilizadas en el proyecto.
