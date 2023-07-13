@@ -22,7 +22,7 @@ El repositorio contiene los siguientes archivos y directorios relacionados con l
 - STM32F401RETX_FLASH.ld: Archivo de enlace (linker script) relacionado con el proyecto.
 - STM32F401RETX_RAM.ld: Archivo de enlace (linker script) relacionado con la memoria RAM del proyecto.
 
-El archivo `STM32F401RETX_RAM.ld` es un script de enlace (linker script) que define la configuración de memoria RAM para el proyecto. Proporciona información sobre la asignación y disposición de la memoria RAM del microcontrolador STM32F401RETX utilizado en la placa NUCLEO-F429ZI.
+El archivo `STM32F401RETX_RAM.ld` es un script de enlace (linker script) que define la configuración de memoria RAM para el proyecto. Proporciona información sobre la asignación y disposición de la memoria RAM del microcontrolador STM32F401RETX utilizado en la placa NUCLEO-F401RE.
 
 ¡Diviértete programando los LEDs y experimentando con diferentes secuencias!
 
