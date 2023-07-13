@@ -2,7 +2,7 @@
 
 Implementar un programa que genere la secuencia descrita anteriormente.Ejemplo de secuencia: Led1(ON) 200ms, Leds(OFF) 200ms, Led2(ON) 200ms, Leds(OFF) 200ms, Led3(ON) 200ms, Leds(OFF) 200ms, Led1(ON) 200ms, Leds(OFF) 200ms, etc.
 
-https://youtu.be/fcAjegxH5mk
+Puedes ver una demostración del proyecto en acción en el siguiente enlace de YouTube: [Video de YouTube](https://youtu.be/fcAjegxH5mk)
 
 
 Puedes encontrar el código y los detalles de la implementación en [este enlace](https://github.com/Kzamudioq/PdM_workspace/tree/main/Practica%201/Practica%201.1).
