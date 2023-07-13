@@ -39,39 +39,64 @@ El archivo `STM32F401RETX_RAM.ld` es un script de enlace (linker script) que def
 
 ## main.c
 
-El archivo `main.c` se encuentra en la carpeta `Core`. Contiene la función `main()`, que se ejecuta al iniciar el programa. Aquí se encuentra la lógica principal de la práctica. Algunas funciones importantes incluidas en `main.c` son:
-
-- `setup()`: Esta función se encarga de la configuración inicial del microcontrolador y los periféricos utilizados en la práctica. Aquí se inicializan los pines, los temporizadores, las interrupciones, etc.
-- `loop()`: Esta función se ejecuta en un bucle continuo después de la configuración inicial. Aquí se coloca la lógica principal de la práctica, incluyendo la lectura de sensores, el procesamiento de datos y el control de los actuadores.
-- `delay(ms)`: Esta función se utiliza para introducir una pausa en la ejecución del programa durante un tiempo determinado en milisegundos. Se puede utilizar para crear retardos o establecer intervalos de tiempo entre operaciones.
-
-En el bucle principal (`while (1)`), el programa realiza el parpadeo de los LEDs LD1, LD2 y LD3 en intervalos de 200 ms. El código más importante en el bucle principal es el siguiente:
+El archivo `main.c` se encuentra en la carpeta `Core`. Contiene la función `main()`, que se ejecuta al iniciar el programa. Aquí se encuentra la lógica principal de la práctica. El programa principal se encuentra en el archivo `main.c`. Aquí se realiza la configuración inicial del microcontrolador y se implementa el bucle principal:
 
 ```c
-while (1)
+// Función para alternar la secuencia de los LEDs
+void Toggle_LED_Sequence(uint8_t sequenceIndex)
 {
-  // Parpadeo del LED LD1
-  HAL_GPIO_WritePin(LD1_GPIO_Port, LD1_Pin, GPIO_PIN_SET);
-  HAL_Delay(200);
-  HAL_GPIO_WritePin(LD1_GPIO_Port, LD1_Pin, GPIO_PIN_RESET);
-  HAL_Delay(200);
-  
-  // Parpadeo del LED LD2
-  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);
-  HAL_Delay(200);
-  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
-  HAL_Delay(200);
-  
-  // Parpadeo del LED LD3
-  HAL_GPIO_WritePin(LD3_GPIO_Port, LD3_Pin, GPIO_PIN_SET);
-  HAL_Delay(200);
-  HAL_GPIO_WritePin(LD3_GPIO_Port, LD3_Pin, GPIO_PIN_RESET);
-  HAL_Delay(200);
+  const uint8_t sequences[6][3] = {
+    {1, 2, 3},  // Secuencia 1: LED1, LED2, LED3
+    {1, 3, 2},  // Secuencia 2: LED1, LED3, LED2
+    {2, 1, 3},  // Secuencia 3: LED2, LED1, LED3
+    {2, 3, 1},  // Secuencia 4: LED2, LED3, LED1
+    {3, 2, 1},  // Secuencia 5: LED3, LED2, LED1
+    {3, 1, 2}   // Secuencia 6: LED3, LED1, LED2
+  };
+
+  const uint8_t* sequence = sequences[sequenceIndex];
+
+  for (int i = 0; i < 3; i++) {
+    uint8_t led = sequence[i];
+    HAL_GPIO_WritePin(LD_GPIO_Port[led - 1], LD_Pin[led - 1], GPIO_PIN_SET);
+    HAL_Delay(200);
+    HAL_GPIO_WritePin(LD_GPIO_Port[led - 1], LD_Pin[led - 1], GPIO_PIN_RESET);
+    HAL_Delay(200);
+  }
+}
+
+int main(void)
+{
+  // Configuración inicial del microcontrolador
+
+  uint8_t sequenceIndex = 0; // Variable para controlar el índice de la secuencia de LEDs
+
+  while (1)
+  {
+    // Verificar si el pulsador ha sido presionado
+    if (HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin) == GPIO_PIN_RESET)
+    {
+      HAL_Delay(50);
+      if (HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin) == GPIO_PIN_RESET)
+      {
+        sequenceIndex++;
+        if (sequenceIndex >= 6)
+        {
+          sequenceIndex = 0;
+        }
+        while (HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin) == GPIO_PIN_RESET)
+        {
+          // Esperar a que se suelte el pulsador
+        }
+      }
+    }
+
+    // Llamar a la función para alternar la secuencia de los LEDs
+    Toggle_LED_Sequence(sequenceIndex);
+  }
 }
 ```
-En cada iteración del bucle, se enciende y apaga secuencialmente cada LED (LD1, LD2 y LD3) en intervalos de 200 ms. Esto se logra utilizando las funciones HAL_GPIO_WritePin() para establecer el estado del pin del LED y HAL_Delay() para pausar el programa durante el intervalo de tiempo especificado.
-
-La secuencia de parpadeo se repite continuamente mientras el programa está en funcionamiento debido a que el bucle principal tiene una condición while (1) que siempre es verdadera.
+En el código anterior, se muestra la definición de la función Toggle_LED_Sequence(), que se encarga de alternar la secuencia de los LEDs. Luego, se muestra el bucle principal (while) del programa, donde se verifica si el pulsador ha sido presionado, se realiza el cambio de secuencia y se llama a la función Toggle_LED_Sequence() para encender y apagar los LEDs según el orden de la secuencia seleccionada.
 
 ## main.h
 
