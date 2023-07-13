@@ -5,18 +5,13 @@
 Implementar un programa que genere una secuencia periódica con los leds de la placa NUCLEO-F401RE, cada led debe permanecer encendido 200 ms y no debe encenderse más de un led simultáneamente, adicioalmente debe haber 200 ms de separación temporal entre encendidas sucesivas.
 Ejemplo de secuencia: Led1(ON) 200ms, Leds(OFF) 200ms, Led2(ON) 200ms, Leds(OFF) 200ms, Led3(ON) 200ms, Leds(OFF) 200ms, Led1(ON) 200ms, Leds(OFF) 200ms, etc. Puedes ver una demostración del proyecto en acción en el siguiente video:
 
-https://github.com/Kzamudioq/PdM_workspace/assets/138271936/7b16c702-13f5-476c-b96a-e0e9a096fe24
+https://github.com/Kzamudioq/PdM_workspace/assets/138271936/383e237e-dadd-4e59-87fb-4ef3fa8b0c80
 
-
-
-Puedes encontrar el código y los detalles de la implementación en [este enlace](https://github.com/Kzamudioq/PdM_workspace/tree/main/Practica%201/Practica%201.1).
 
 ## Archivos del Proyecto
 
 
-
-
-Este repositorio contiene los siguientes archivos y directorios relacionados con la práctica:
+Puedes encontrar el código y los detalles de la implementación en [este enlace](https://github.com/Kzamudioq/PdM_workspace/tree/main/Practica%201/Practica%201.1) y este contiene los siguientes archivos y directorios relacionados con la práctica, :
 
 - `.settings`: directorio que contiene la configuración específica del proyecto para el entorno STM32CubeIDE.
 - `Core`: directorio que contiene los archivos esenciales del proyecto. Aquí se encuentran los archivos principales que son necesarios para el funcionamiento del programa, como `main.c`, `main.h` y otros archivos fuente o de configuración esenciales para la aplicación específica.
