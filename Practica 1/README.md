@@ -1,6 +1,6 @@
 # Práctica 1
 
-En esta práctica, el objetivo es familiarizarse con el entorno de trabajo STM32CubeIDE + NUCLEO-F401RE + firmware y desarrollar un programa que genere una secuencia periódica con el LEDs de la placa NUCLEO-F401RE, la ayuda de ua proto board y dos leds adicioales.
+En esta práctica, el objetivo es familiarizarse con el entorno de trabajo STM32CubeIDE + NUCLEO-F401RE + firmware y desarrollar un programa que genere una secuencia periódica con el LEDs de la placa NUCLEO-F401RE, la ayuda de ua proto board y dos leds adicionales.
 
 ![materiales](https://github.com/Kzamudioq/PdM_workspace/assets/138271936/c8dffdf2-32d9-429b-88b5-271382f21f7e)
 
