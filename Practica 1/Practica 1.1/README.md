@@ -1,13 +1,20 @@
+
+
 # Punto 1
 
-Implementar un programa que genere la secuencia descrita anteriormente.Ejemplo de secuencia: Led1(ON) 200ms, Leds(OFF) 200ms, Led2(ON) 200ms, Leds(OFF) 200ms, Led3(ON) 200ms, Leds(OFF) 200ms, Led1(ON) 200ms, Leds(OFF) 200ms, etc.
+Implementar un programa que genere una secuencia periódica con los leds de la placa NUCLEO-F401RE, cada led debe permanecer encendido 200 ms y no debe encenderse más de un led simultáneamente, adicioalmente debe haber 200 ms de separación temporal entre encendidas sucesivas.
+Ejemplo de secuencia: Led1(ON) 200ms, Leds(OFF) 200ms, Led2(ON) 200ms, Leds(OFF) 200ms, Led3(ON) 200ms, Leds(OFF) 200ms, Led1(ON) 200ms, Leds(OFF) 200ms, etc. Puedes ver una demostración del proyecto en acción en el siguiente video:
 
-Puedes ver una demostración del proyecto en acción en el siguiente enlace de YouTube: [Video de YouTube](https://youtu.be/fcAjegxH5mk)
+https://github.com/Kzamudioq/PdM_workspace/assets/138271936/7b16c702-13f5-476c-b96a-e0e9a096fe24
+
 
 
 Puedes encontrar el código y los detalles de la implementación en [este enlace](https://github.com/Kzamudioq/PdM_workspace/tree/main/Practica%201/Practica%201.1).
 
 ## Archivos del Proyecto
+
+
+
 
 Este repositorio contiene los siguientes archivos y directorios relacionados con la práctica:
 
