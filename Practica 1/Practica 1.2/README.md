@@ -23,8 +23,8 @@ Puedes encontrar el código y los detalles de la implementación en [este enlace
 - `.cproject`: archivo de configuración del proyecto para el entorno STM32CubeIDE.
 - `.mxproject`: archivo de configuración del proyecto para el entorno STM32CubeIDE.
 - `.project`: archivo de configuración del proyecto para el entorno STM32CubeIDE.
-- `Practica 1 Debug.launch`: archivo de configuración de depuración específico de la Práctica 1.
-- `Practica 1.1.ioc`: archivo de configuración específico de la Práctica 1.1.
+- `Practica 1.2 Debug.launch`: archivo de configuración de depuración específico de la Práctica 1.
+- `Practica 1.2.ioc`: archivo de configuración específico de la Práctica 1.1.
 - `STM32F401RETX_FLASH.ld`: archivo de enlace (linker script) relacionado con el proyecto.
 - `STM32F401RETX_RAM.ld`: archivo de enlace (linker script) relacionado con la memoria RAM del proyecto.
 
