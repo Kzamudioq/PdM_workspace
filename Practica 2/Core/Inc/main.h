@@ -1,4 +1,4 @@
-/* Define to prevent recursive inclusion */
+/* Define para evitar inclusiones recursivas*/
 #ifndef __MAIN_H
 #define __MAIN_H
 
@@ -6,14 +6,12 @@
 extern "C" {
 #endif
 
-/* Includes */
+/* Inclusiones */
 #include "stm32f4xx_hal.h"
 #include <stdint.h> // Biblioteca estándar para tipos de datos (stdint.h)
 #include <stdbool.h> // Biblioteca estándar para tipos booleanos (stdbool.h)
 
-/* Private includes */
-
-/* Exported types */
+/* Tipos exportados */
 typedef uint32_t tick_t; // Tipo de dato para almacenar el tiempo
 typedef bool bool_t; // Tipo de dato booleano
 
@@ -23,11 +21,7 @@ typedef struct {
    bool_t running; // Estado del retardo (en ejecución o no)
 } delay_t;
 
-/* Exported constants */
-
-/* Exported macro */
-
-/* Exported functions prototypes */
+/* Prototipos de funciones exportadas */
 void Error_Handler(void);
 
 /**
@@ -51,7 +45,7 @@ bool_t delayRead(delay_t* delay);
   */
 void delayWrite(delay_t* delay, tick_t duration);
 
-/* Private defines */
+/* Definiciones privadas */
 #define B1_Pin GPIO_PIN_13
 #define B1_GPIO_Port GPIOC
 #define LD1_Pin GPIO_PIN_0
@@ -70,8 +64,6 @@ void delayWrite(delay_t* delay, tick_t duration);
 #define TCK_GPIO_Port GPIOA
 #define SWO_Pin GPIO_PIN_3
 #define SWO_GPIO_Port GPIOB
-
-/* Private defines */
 #define LED1_TIME 100
 #define LED2_TIME 500
 #define LED3_TIME 1000
