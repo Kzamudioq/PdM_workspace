@@ -82,6 +82,8 @@ El archivo `main.h` se encuentra en la carpeta `Core`. Es un archivo de encabeza
 - Se definen los pines utilizados en el proyecto, como el botón B1, los LEDs LD1, LD2 y LD3, y los pines USART para la comunicación serie.
 
 - El bloque `#ifdef __cplusplus` y `#endif` cierra la declaración `extern "C"` para indicar que las declaraciones de las funciones deben ser tratadas como código C en lugar de código C++ cuando se incluye este archivo en un proyecto de lenguaje mixto.
+  
+- Se definen los pines utilizados en el proyecto, como el botón B1 (B1_Pin y B1_GPIO_Port), los LEDs LD1, LD2 y LD3 (LD1_Pin, LD1_GPIO_Port, LD2_Pin, LD2_GPIO_Port, LD3_Pin y LD3_GPIO_Port), y los pines USART para la comunicación serie (USART_TX_Pin, USART_TX_GPIO_Port, USART_RX_Pin y USART_RX_GPIO_Port).
 
 
 La estructura del repositorio se organiza de esta manera para separar las configuraciones del entorno, los archivos esenciales del proyecto, los controladores del microcontrolador STM32 y los archivos de configuración específicos de la práctica. Esto ayuda a mantener el código ordenado y facilita la navegación y comprensión del proyecto.
