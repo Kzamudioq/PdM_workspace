@@ -39,4 +39,4 @@ Estos enlaces te llevarán a los respectivos repositorios donde encontrarás los
 
 ## Autora
 
-- **Ingeniera Karenn Tatiana Zamudio** - Graduada de la Universidad Distrital
+- **Ingeniera Karen Tatiana Zamudio** - Graduada de la Universidad Distrital
