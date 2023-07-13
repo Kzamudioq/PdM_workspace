@@ -7,7 +7,10 @@ En esta práctica, el objetivo es implementar un módulo de software para trabaj
 Implementar un módulo de software para trabajar con retardos no bloqueantes en STM nucleo F401RE y adaptación de protoboard con dos LED, como sse vusualiza en el siguiente video:
 
 
-https://github.com/Kzamudioq/PdM_workspace/assets/138271936/27717711-cb6e-4841-be7c-49d52c9cfee2
+
+
+https://github.com/Kzamudioq/PdM_workspace/assets/138271936/e91e0b89-b421-4822-988e-55da7a1d3b9c
+
 
 
 ### Punto 1
