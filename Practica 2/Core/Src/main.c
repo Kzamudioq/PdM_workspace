@@ -16,7 +16,7 @@
   ******************************************************************************
   */
 /* USER CODE END Header */
-/* Includes ------------------------------------------------------------------*/
+/* Inclusiones ----------------------------------------------------------------*/
 #include "main.h"
 
 
@@ -25,38 +25,37 @@ delay_t delayLED1;
 delay_t delayLED2;
 delay_t delayLED3;
 
-/* Private includes ----------------------------------------------------------*/
+/* Inclusiones privadas -------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-/* Private variables ---------------------------------------------------------*/
+/* Variables privadas ---------------------------------------------------------*/
 UART_HandleTypeDef huart2;
 
 
-/* Private function prototypes -----------------------------------------------*/
+/* Prototipos de funciones privadas -----------------------------------------------*/
 
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
 
 /**
-  * @brief  The application entry point.
+  * @brief  Punto de entrada de la aplicación.
   * @retval int
   */
 
 int main(void)
 {
-  // Inicializar los retardos para cada LED
+  /*  Inicializar los retardos para cada LED*/
   delayInit(&delayLED1, LED1_TIME);
   delayInit(&delayLED2, LED2_TIME);
   delayInit(&delayLED3, LED3_TIME);
 
-  /* MCU Configuration--------------------------------------------------------*/
-
+  /* Configuración del MCU */
   HAL_Init();
   SystemClock_Config();
   MX_GPIO_Init();
   MX_USART2_UART_Init();
 
-  /* Infinite loop */
+  /* Bucle infinito */
   while (1){
 	  // Verificar los retardos y controlar el parpadeo de los LEDs
 
@@ -122,19 +121,19 @@ void delayWrite(delay_t* delay, tick_t duration) {
    delay->duration = duration;
 }
 
-/* System Clock Configuration */
+/* Configuración del sistema de reloj */
 void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
-  /** Configure the main internal regulator output voltage
+  /** Configurar la tensión de salida del regulador interno principal
   */
   __HAL_RCC_PWR_CLK_ENABLE();
   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE2);
 
-  /** Initializes the RCC Oscillators according to the specified parameters
-  * in the RCC_OscInitTypeDef structure.
+  /** Inicializar los osciladores RCC según los parámetros especificados
+  * en la estructura RCC_OscInitStruct.
   */
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
@@ -150,7 +149,7 @@ void SystemClock_Config(void)
     Error_Handler();
   }
 
-  /** Initializes the CPU, AHB and APB buses clocks
+  /** Inicializar los relojes de la CPU, AHB y APB
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
@@ -173,13 +172,6 @@ void SystemClock_Config(void)
 static void MX_USART2_UART_Init(void)
 {
 
-  /* USER CODE BEGIN USART2_Init 0 */
-
-  /* USER CODE END USART2_Init 0 */
-
-  /* USER CODE BEGIN USART2_Init 1 */
-
-  /* USER CODE END USART2_Init 1 */
   huart2.Instance = USART2;
   huart2.Init.BaudRate = 115200;
   huart2.Init.WordLength = UART_WORDLENGTH_8B;
@@ -192,10 +184,6 @@ static void MX_USART2_UART_Init(void)
   {
     Error_Handler();
   }
-  /* USER CODE BEGIN USART2_Init 2 */
-
-  /* USER CODE END USART2_Init 2 */
-
 }
 
 /**
@@ -218,7 +206,7 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, LD1_Pin|LD3_Pin|LD2_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : B1_Pin */
+  /*Cofigure GPIO pin : B1_Pin */
   GPIO_InitStruct.Pin = B1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
@@ -231,13 +219,7 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-/* USER CODE BEGIN MX_GPIO_Init_2 */
-/* USER CODE END MX_GPIO_Init_2 */
 }
-
-/* USER CODE BEGIN 4 */
-
-/* USER CODE END 4 */
 
 /**
   * @brief  This function is executed in case of error occurrence.
@@ -245,8 +227,7 @@ static void MX_GPIO_Init(void)
   */
 void Error_Handler(void)
 {
-  /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state */
+
   __disable_irq();
   while (1)
   {
@@ -255,18 +236,9 @@ void Error_Handler(void)
 }
 
 #ifdef  USE_FULL_ASSERT
-/**
-  * @brief  Reports the name of the source file and the source line number
-  *         where the assert_param error has occurred.
-  * @param  file: pointer to the source file name
-  * @param  line: assert_param error line source number
-  * @retval None
-  */
+
 void assert_failed(uint8_t *file, uint32_t line)
 {
-  /* USER CODE BEGIN 6 */
-  /* User can add his own implementation to report the file name and line number,
-     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
-  /* USER CODE END 6 */
+
 }
 #endif /* USE_FULL_ASSERT */
