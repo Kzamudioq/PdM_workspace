@@ -46,4 +46,32 @@ Implementar un programa que utilice retardos no bloqueantes y  haga titilar en f
 - LED2: 500 ms.
 - LED3: 1000 ms.
 
+## Implementación
 
+El código principal se encuentra en el archivo `main.c`. A continuación se muestra una parte importante del código que controla el parpadeo de los LEDs:
+
+```c
+// Inicializar los retardos para cada LED
+delayInit(&delayLED1, LED1_TIME);
+delayInit(&delayLED2, LED2_TIME);
+delayInit(&delayLED3, LED3_TIME);
+
+while (1) {
+  if (delayRead(&delayLED1)) {
+    // El tiempo de retardo para LED1 se ha cumplido, cambiar el estado del LED
+    HAL_GPIO_TogglePin(LD1_GPIO_Port, LD1_Pin);
+  }
+
+  if (delayRead(&delayLED2)) {
+    // El tiempo de retardo para LED2 se ha cumplido, cambiar el estado del LED
+    HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+  }
+
+  if (delayRead(&delayLED3)) {
+    // El tiempo de retardo para LED3 se ha cumplido, cambiar el estado del LED
+    HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
+  }
+}
+```
+
+En este fragmento de código, se inicializan los retardos para cada LED utilizando la función delayInit. Luego, en el bucle principal, se verifica el estado de cada retardo utilizando la función delayRead. Si un retardo ha finalizado, se cambia el estado correspondiente del LED utilizando la función HAL_GPIO_TogglePin. Esto crea el efecto de parpadeo de los LEDs en diferentes intervalos de tiempo.
