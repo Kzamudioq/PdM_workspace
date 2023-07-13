@@ -8,8 +8,8 @@ Implementar un módulo de software para trabajar con retardos no bloqueantes en 
 
 
 
+https://github.com/Kzamudioq/PdM_workspace/assets/138271936/b7d70695-d09d-49b2-87f3-a03cf645c8ba
 
-https://github.com/Kzamudioq/PdM_workspace/assets/138271936/e91e0b89-b421-4822-988e-55da7a1d3b9c
 
 
 
