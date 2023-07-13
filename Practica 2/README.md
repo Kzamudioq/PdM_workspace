@@ -4,7 +4,10 @@ En esta práctica, el objetivo es implementar un módulo de software para trabaj
 
 ## Objetivo
 
-Implementar un módulo de software para trabajar con retardos no bloqueantes. 
+Implementar un módulo de software para trabajar con retardos no bloqueantes en STM nucleo F401RE y adaptación de protoboard con dos led.
+
+![STM nucleo F401RE ](https://github.com/Kzamudioq/PdM_workspace/assets/138271936/861f3a4b-fcfc-4d8b-8d17-5e670c5e611d)
+
 
 ### Punto 1
 Implementar las funciones auxiliares necesarias para usar retardos no bloqueantes en un archivo fuente main.c con su correspondiente archivo de cabecera main.h.
