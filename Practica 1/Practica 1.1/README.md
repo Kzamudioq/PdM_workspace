@@ -1,4 +1,4 @@
-### Punto 1
+# Punto 1
 
 Implementar un programa que genere la secuencia descrita anteriormente.
 
@@ -6,7 +6,7 @@ Ejemplo de secuencia: Led1(ON) 200ms, Leds(OFF) 200ms, Led2(ON) 200ms, Leds(OFF)
 
 Puedes encontrar el código y los detalles de la implementación en [este enlace](https://github.com/Kzamudioq/PdM_workspace/tree/main/Practica%201/Practica%201.1).
 
-### Archivos del Proyecto
+## Archivos del Proyecto
 
 Este repositorio contiene los siguientes archivos y directorios relacionados con la práctica:
 
