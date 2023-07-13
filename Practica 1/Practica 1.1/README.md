@@ -69,7 +69,20 @@ La secuencia de parpadeo se repite continuamente mientras el programa está en f
 
 ## main.h
 
-El archivo `main.h` se encuentra en la carpeta `Core`. Es un archivo de encabezado (header file) que contiene las declaraciones de las funciones y variables utilizadas en `main.c` y otros archivos del proyecto. Aquí se definen los prototipos de las funciones principales y las variables globales utilizadas en el proyecto.
+El archivo `main.h` se encuentra en la carpeta `Core`. Es un archivo de encabezado (header file) que contiene las declaraciones de las funciones y variables utilizadas en `main.c` y otros archivos del proyecto. Aquí se definen los prototipos de las funciones principales y las variables globales utilizadas en el proyecto:
+
+- La directiva `#ifndef __MAIN_H` y `#define __MAIN_H` aseguran que el contenido del archivo solo se incluya una vez para evitar problemas de duplicación.
+
+- El bloque `#ifdef __cplusplus` y `#endif` permite que el archivo sea compatible tanto con el lenguaje C como con el lenguaje C++.
+
+- Se incluye el archivo de encabezado `stm32f4xx_hal.h`, que contiene las definiciones y funciones específicas del microcontrolador STM32F4.
+
+- Se declara el prototipo de la función `Error_Handler()`, que se utiliza para manejar errores en el programa. La implementación de esta función se encuentra en otro lugar del proyecto.
+
+- Se definen los pines utilizados en el proyecto, como el botón B1, los LEDs LD1, LD2 y LD3, y los pines USART para la comunicación serie.
+
+- El bloque `#ifdef __cplusplus` y `#endif` cierra la declaración `extern "C"` para indicar que las declaraciones de las funciones deben ser tratadas como código C en lugar de código C++ cuando se incluye este archivo en un proyecto de lenguaje mixto.
+
 
 La estructura del repositorio se organiza de esta manera para separar las configuraciones del entorno, los archivos esenciales del proyecto, los controladores del microcontrolador STM32 y los archivos de configuración específicos de la práctica. Esto ayuda a mantener el código ordenado y facilita la navegación y comprensión del proyecto.
 
