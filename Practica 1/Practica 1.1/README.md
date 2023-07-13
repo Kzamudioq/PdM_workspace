@@ -10,17 +10,17 @@ Puedes encontrar el código y los detalles de la implementación en [este enlace
 
 Este repositorio contiene los siguientes archivos y directorios relacionados con la práctica:
 
-- `.settings`: Directorio que contiene la configuración específica del proyecto para el entorno STM32CubeIDE.
-- `Core`: Directorio que contiene archivos esenciales del proyecto.
-- `Debug`: Directorio que contiene archivos relacionados con la configuración de depuración.
-- `Drivers`: Directorio que contiene archivos de controladores para el microcontrolador STM32.
-- `.cproject`: Archivo de configuración del proyecto para el entorno STM32CubeIDE.
-- `.mxproject`: Archivo de configuración del proyecto para el entorno STM32CubeIDE.
-- `.project`: Archivo de configuración del proyecto para el entorno STM32CubeIDE.
-- `Practica 1 Debug.launch`: Archivo de configuración de depuración específico de la Práctica 1.
-- `Practica 1.1.ioc`: Archivo de configuración específico de la Práctica 1.1.
-- `STM32F401RETX_FLASH.ld`: Archivo de enlace (linker script) relacionado con el proyecto.
-- `STM32F401RETX_RAM.ld`: Archivo de enlace (linker script) relacionado con la memoria RAM del proyecto.
+- `.settings`: directorio que contiene la configuración específica del proyecto para el entorno STM32CubeIDE.
+- `Core`: Directorio que contiene los archivos esenciales del proyecto. Aquí se encuentran los archivos principales que son necesarios para el funcionamiento del programa, como `main.c`, `main.h` y otros archivos fuente o de configuración esenciales para la aplicación específica.
+- `Debug`: Directorio que contiene los archivos relacionados con la configuración de depuración. Estos archivos son utilizados durante el proceso de depuración del programa para obtener información detallada sobre el estado del programa, variables, registros y otros datos relevantes para facilitar la detección y corrección de errores.
+- `Drivers`: directorio que contiene archivos de controladores para el microcontrolador STM32.
+- `.cproject`: archivo de configuración del proyecto para el entorno STM32CubeIDE.
+- `.mxproject`: archivo de configuración del proyecto para el entorno STM32CubeIDE.
+- `.project`: archivo de configuración del proyecto para el entorno STM32CubeIDE.
+- `Practica 1 Debug.launch`: archivo de configuración de depuración específico de la Práctica 1.
+- `Practica 1.1.ioc`: archivo de configuración específico de la Práctica 1.1.
+- `STM32F401RETX_FLASH.ld`: archivo de enlace (linker script) relacionado con el proyecto.
+- `STM32F401RETX_RAM.ld`: archivo de enlace (linker script) relacionado con la memoria RAM del proyecto.
 
 Además, los archivos principales del proyecto son:
 
