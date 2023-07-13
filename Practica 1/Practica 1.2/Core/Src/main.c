@@ -19,11 +19,11 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
-/* Private variables ---------------------------------------------------------*/
+/* Variables privadas ---------------------------------------------------------*/
 GPIO_TypeDef* LD_GPIO_Port[3] = {LD1_GPIO_Port, LD2_GPIO_Port, LD3_GPIO_Port};
 uint16_t LD_Pin[3] = {LD1_Pin, LD2_Pin, LD3_Pin};
 
-/* Private function prototypes -----------------------------------------------*/
+/* Prototipos de funciones privadas -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 void Toggle_LED_Sequence(uint8_t sequenceIndex);
@@ -36,44 +36,53 @@ void Error_Handler(void);
 int main(void)
 {
 
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  /* Reset de todos los periféricos, inicializa la interfaz Flash y el SysTick. */
   HAL_Init();
 
-  /* Configure the system clock */
+  /* Configura el reloj del sistema */
   SystemClock_Config();
 
-  /* Initialize all configured peripherals */
+  /* Inicializa todos los periféricos configurados */
   MX_GPIO_Init();
  
-  // Variable para controlar el índice de la secuencia de LEDs
+  /*  Variable para controlar el índice de la secuencia de LEDs*/
   uint8_t sequenceIndex = 0; 
  
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    /* Comprueba si el pulsador está presionado*/
     if (HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin) == GPIO_PIN_RESET)
     {
       HAL_Delay(50);
+      /* Comprueba nuevamete si el pulsador está presionado*/
       if (HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin) == GPIO_PIN_RESET)
       {
+        /* Incrementa el índice de la secuencia*/
         sequenceIndex++;
+        /* Incrementa el índice de la secuencia*/
         if (sequenceIndex >= 6)
         {
           sequenceIndex = 0;
         }
+        /* Espera a que el pulsador se suelte antes de continuar*/
         while (HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin) == GPIO_PIN_RESET)
         {
-          // Esperar a que se suelte el pulsador
         }
       }
     }
-
+    /* Alterna la secuencia de los LEDs*/
     Toggle_LED_Sequence(sequenceIndex);
   }
 }
-
+/**
+  * @brief  Alterna los LEDs en función del índice de la secuencia dado.
+  * @param  sequenceIndex: Índice de la secuencia de LEDs.
+  * @retval None
+  */
 void Toggle_LED_Sequence(uint8_t sequenceIndex)
 {
+ /* Define las secuencias de los LEDs*/
   const uint8_t sequences[6][3] = {
     {1, 2, 3},  // Secuencia 1: LED1, LED2, LED3
     {1, 3, 2},  // Secuencia 2: LED1, LED3, LED2
@@ -82,9 +91,10 @@ void Toggle_LED_Sequence(uint8_t sequenceIndex)
     {3, 2, 1},  // Secuencia 5: LED3, LED2, LED1
     {3, 1, 2}   // Secuencia 6: LED3, LED1, LED2
   };
-
+  /* Obtiene la secuencia correspondiente al índice dado*/
   const uint8_t* sequence = sequences[sequenceIndex];
-
+ 
+  /* Itera sobre la secuencia y alterna los LEDs*/
   for (int i = 0; i < 3; i++) {
     uint8_t led = sequence[i];
     HAL_GPIO_WritePin(LD_GPIO_Port[led - 1], LD_Pin[led - 1], GPIO_PIN_SET);
@@ -103,13 +113,13 @@ void SystemClock_Config(void)
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
-  /** Configure the main internal regulator output voltage
+  /** Configura la tensión de salida del regulador interno principal
   */
   __HAL_RCC_PWR_CLK_ENABLE();
   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE2);
 
-  /** Initializes the RCC Oscillators according to the specified parameters
-  * in the RCC_OscInitTypeDef structure.
+  /** Inicializa los osciladores RCC según los parámetros especificados
+  * en la estructura RCC_OscInitStruct.
   */
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
@@ -125,7 +135,7 @@ void SystemClock_Config(void)
     Error_Handler();
   }
 
-  /** Initializes the CPU, AHB and APB buses clocks
+  /** Inicializa los relojes del CPU, AHB y APB
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
@@ -148,44 +158,41 @@ void SystemClock_Config(void)
 static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
-/* USER CODE BEGIN MX_GPIO_Init_1 */
-/* USER CODE END MX_GPIO_Init_1 */
 
-  /* GPIO Ports Clock Enable */
+  /* Habilita el reloj de los puertos GPIO */
   __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
-  /*Configure GPIO pin Output Level */
+  /* Configura el nivel de salida de los pines GPIOA como RESET */
   HAL_GPIO_WritePin(GPIOA, LD1_Pin|LD3_Pin|LD2_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : B1_Pin */
+  /* Configura el pin B1 como IT_FALLING (interrupción por flanco de bajada) sin resistencia pull-up/pull-down */
   GPIO_InitStruct.Pin = B1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : LD1_Pin LD3_Pin LD2_Pin */
+  /* Configura los pines LD1_Pin, LD3_Pin y LD2_Pin como OUTPUT_PP (salida push-pull) de baja frecuencia */
   GPIO_InitStruct.Pin = LD1_Pin|LD3_Pin|LD2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : USART_TX_Pin USART_RX_Pin */
+  /* Configura los pines USART_TX_Pin y USART_RX_Pin como AF_PP (función alternativa push-pull) de baja frecuencia */
   GPIO_InitStruct.Pin = USART_TX_Pin|USART_RX_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   GPIO_InitStruct.Alternate = GPIO_AF7_USART2;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
 /**
   * @brief  This function is executed in case of error occurrence.
   * @retval None
   */
-
-
 void Error_Handler(void)
 {
 
@@ -193,7 +200,6 @@ void Error_Handler(void)
   while (1)
   {
   }
-  /* USER CODE END Error_Handler_Debug */
 }
 
 #ifdef  USE_FULL_ASSERT
@@ -202,4 +208,4 @@ void assert_failed(uint8_t *file, uint32_t line)
 {
 
 }
-#endif /* USE_FULL_ASSERT */
+#endif 
