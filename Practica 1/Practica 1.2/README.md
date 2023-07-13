@@ -14,7 +14,7 @@ https://github.com/Kzamudioq/PdM_workspace/assets/138271936/c89f665f-2832-4407-9
 ## Archivos del Proyecto
 
 
-Puedes encontrar el código y los detalles de la implementación en [este enlace](https://github.com/Kzamudioq/PdM_workspace/tree/main/Practica%201/Practica%201.1) y este contiene los siguientes archivos y directorios relacionados con la práctica, :
+Puedes encontrar el código y los detalles de la implementación en [este enlace](https://github.com/Kzamudioq/PdM_workspace/tree/main/Practica%201/Practica%201.2) y este contiene los siguientes archivos y directorios relacionados con la práctica, :
 
 - `.settings`: directorio que contiene la configuración específica del proyecto para el entorno STM32CubeIDE.
 - `Core`: directorio que contiene los archivos esenciales del proyecto. Aquí se encuentran los archivos principales que son necesarios para el funcionamiento del programa, como `main.c`, `main.h` y otros archivos fuente o de configuración esenciales para la aplicación específica.
