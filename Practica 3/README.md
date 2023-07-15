@@ -35,7 +35,7 @@ nota: cuando se agregar carpetas a un proyecto de eclipse se deben incluir en el
 
 ### Punto 2
 
-Implementar un programa que utilice retardos no bloqueantes y haga titilar en forma periódica e independiente los tres leds de la placa NUCLEO-F429ZI de acuerdo a una secuencia predeterminada como en la práctica 1.
+Implementar un programa que utilice retardos no bloqueantes y haga titilar en forma periódica e independiente los tres leds de la placa NUCLEO-F401RE de acuerdo a una secuencia predeterminada como en la práctica 1, punto 2.
 
 Cada led debe permanecer encendido 200 ms.  No debe encenderse más de un led simultáneamente en ningún momento.
 
