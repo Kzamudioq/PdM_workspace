@@ -1,6 +1,7 @@
 # Práctica 3
 
-En esta práctica, el objetivo es implementar un módulo de software para trabajar con retardos no bloqueantes a partir de las funciones creadas en la práctica 2. Se debe crear un nuevo proyecto y encapsular las funciones necesarias en un archivo fuente y su correspondiente archivo de cabecera.
+En esta práctica, el objetivo es implementar un módulo de software para trabajar con retardos no bloqueantes a partir de las funciones creadas en la práctica 2. Se debe crear un nuevo proyecto y encapsular las funciones necesarias en un archivo fuente y su correspondiente archivo de cabecera. para esto se implementara una placa STM con nucleo F401RE, se añade una proto boart con dos leds adicionales.
+
 
 ## Objetivo
 
