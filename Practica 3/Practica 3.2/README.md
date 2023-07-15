@@ -13,23 +13,23 @@ https://github.com/Kzamudioq/PdM_workspace/assets/138271936/c89f665f-2832-4407-9
 ## Archivos del Proyecto
 
 
-Puedes encontrar el código y los detalles de la implementación en [este enlace](https://github.com/Kzamudioq/PdM_workspace/tree/main/Practica%201/Practica%201.2) y este contiene los siguientes archivos y directorios relacionados con la práctica, :
+Puedes encontrar el código y los detalles de la implementación en [este enlace](https://github.com/Kzamudioq/PdM_workspace/tree/4ad0a88e1328ac0dc331319ea155e1032585eab0/Practica%203/Practica%203.2) y este contiene los siguientes archivos y directorios relacionados con la práctica, :
 
 - `.settings`: directorio que contiene la configuración específica del proyecto para el entorno STM32CubeIDE.
 - `Core`: directorio que contiene los archivos esenciales del proyecto. Aquí se encuentran los archivos principales que son necesarios para el funcionamiento del programa, como `main.c`, `main.h` y otros archivos fuente o de configuración esenciales para la aplicación específica.
 - `Debug`: directorio que contiene los archivos relacionados con la configuración de depuración. Estos archivos son utilizados durante el proceso de depuración del programa para obtener información detallada sobre el estado del programa, variables, registros y otros datos relevantes para facilitar la detección y corrección de errores.
-- `Drivers`: directorio que contiene archivos de controladores para el microcontrolador STM32.
+- `Drivers`: directorio que contiene archivos de controladores para el microcontrolador STM32 , donde se genero la carpeta `API`, y a su vez en esta sse genero dos carpetas denominadas cada una como `Inc` y `Src`. Se puede encontrar en `Inc` el  `API_delay.h` y en `Src` el `API_delay.c`.
 - `.cproject`: archivo de configuración del proyecto para el entorno STM32CubeIDE.
 - `.mxproject`: archivo de configuración del proyecto para el entorno STM32CubeIDE.
 - `.project`: archivo de configuración del proyecto para el entorno STM32CubeIDE.
-- `Practica 1.2 Debug.launch`: archivo de configuración de depuración específico de la Práctica 1.2.
-- `Practica 1.2.ioc`: archivo de configuración específico de la Práctica 1.2.
+- `Practica 3.2 Debug.launch`: archivo de configuración de depuración específico de la Práctica 3.2.
+- `Practica 3.2.ioc`: archivo de configuración específico de la Práctica 3.2.
 - `STM32F401RETX_FLASH.ld`: archivo de enlace (linker script) relacionado con el proyecto.
 - `STM32F401RETX_RAM.ld`: archivo de enlace (linker script) relacionado con la memoria RAM del proyecto.
 
 Además, los archivos principales del proyecto son:
 
-- `main.c`: Este archivo se encuentra en la carpeta `Core` especificamete en `Src`. Contiene la función `main()`, que se ejecuta al iniciar el programa. Aquí es donde se encuentra la lógica principal de la práctica.
+- `API_delay.c`: Este archivo se encuentra en la carpeta `Drivers` que contiene a su vez `API` especificamete en `Src`. Contiene la funciónes necesarias para ejecuta al iniciar el programa. Aquí es donde se encuentra la lógica principal de la práctica.
 - `main.h`: Este archivo se encuentra en la carpeta `Core` especificamete en `Inc`. Es un archivo de encabezado (header file) que contiene las declaraciones de las funciones y variables utilizadas en `main.c` y otros archivos del proyecto.
 
 La estructura del repositorio se organiza de esta manera para separar las configuraciones del entorno, los archivos esenciales del proyecto, los controladores del microcontrolador STM32 y los archivos de configuración específicos de la práctica. Esto ayuda a mantener el código ordenado y facilita la navegación y comprensión del proyecto.
