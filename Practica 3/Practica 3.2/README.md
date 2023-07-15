@@ -30,13 +30,13 @@ Puedes encontrar el código y los detalles de la implementación en [este enlace
 Además, los archivos principales del proyecto son:
 
 - `API_delay.c`: Este archivo se encuentra en la carpeta `Drivers` que contiene a su vez `API` especificamete en `Src`. Contiene la funciónes **delayInit**,**delayRead** y **delayWrite** necesarias para ejecuta al iniciar el programa.
-- `main.h`: Este archivo se encuentra en la carpeta `Core` especificamete en `Inc`. Es un archivo de encabezado (header file) que contiene las declaraciones de las funciones y variables utilizadas en `main.c` y otros archivos del proyecto.
+- `API_delay.h`: Este archivo se encuentra en la carpeta `Drivers` que contiene a su vez `API` especificamete en `Inc`. Es un archivo  que contiene las declaraciones de las funciones y variables utilizadas en `API_delay.c` y otros archivos del proyecto.
 
 La estructura del repositorio se organiza de esta manera para separar las configuraciones del entorno, los archivos esenciales del proyecto, los controladores del microcontrolador STM32 y los archivos de configuración específicos de la práctica. Esto ayuda a mantener el código ordenado y facilita la navegación y comprensión del proyecto.
 
 El archivo `STM32F401RETX_RAM.ld` es un script de enlace (linker script) que define la configuración de memoria RAM para el proyecto. Proporciona información sobre la asignación y disposición de la memoria RAM del microcontrolador STM32F401RETX utilizado en la placa NUCLEO-F401RE.
 
-## main.c
+## API_delay.c
 
 El archivo `main.c` se encuentra en la carpeta `Core`. Contiene la función `main()`, que se ejecuta al iniciar el programa. Aquí se encuentra la lógica principal de la práctica. El programa principal se encuentra en el archivo `main.c`. Aquí se realiza la configuración inicial del microcontrolador y se implementa el bucle principal:
 
@@ -97,7 +97,7 @@ int main(void)
 ```
 En el código anterior, se muestra la definición de la función Toggle_LED_Sequence(), que se encarga de alternar la secuencia de los LEDs. Luego, se muestra el bucle principal (while) del programa, donde se verifica si el pulsador ha sido presionado, se realiza el cambio de secuencia y se llama a la función Toggle_LED_Sequence() para encender y apagar los LEDs según el orden de la secuencia seleccionada.
 
-## main.h
+## API_delay.h
 
 El archivo `main.h` se encuentra en la carpeta `Core`. Es un archivo de encabezado (header file) que contiene las declaraciones de las funciones y variables utilizadas en `main.c` y otros archivos del proyecto. Aquí se definen los prototipos de las funciones principales y las variables globales utilizadas en el proyecto:
 
