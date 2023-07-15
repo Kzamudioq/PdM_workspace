@@ -1,6 +1,8 @@
 # Práctica 3
 
-En esta práctica, el objetivo es implementar un módulo de software para trabajar con retardos no bloqueantes a partir de las funciones creadas en la práctica 2. Se debe crear un nuevo proyecto y encapsular las funciones necesarias en un archivo fuente y su correspondiente archivo de cabecera. para esto se implementara una placa STM con nucleo F401RE, se añade una proto boart con dos leds adicionales.
+En esta práctica, el objetivo es implementar un módulo de software para trabajar con retardos no bloqueantes a partir de las funciones creadas en la práctica 2. Se debe rear un nuevo proyecto y encapsular las funciones necesarias en un archivo fuente y su correspondiente archivo de cabecera. para esto se implementara una STM32CubeIDE + NUCLEO-F401RE + firmware y desarrollar un programa que genere una secuencia periódica con el LEDs de la placa NUCLEO-F401RE, la ayuda de ua proto board y dos leds adicionales.
+
+![materiales](https://github.com/Kzamudioq/PdM_workspace/assets/138271936/c8dffdf2-32d9-429b-88b5-271382f21f7e)
 
 
 ## Objetivo
