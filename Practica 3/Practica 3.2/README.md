@@ -41,61 +41,37 @@ El archivo `STM32F401RETX_RAM.ld` es un script de enlace (linker script) que def
 El archivo `main.c` se encuentra en la carpeta `Core`. Contiene la función `main()`, que se ejecuta al iniciar el programa. Aquí se encuentra la lógica principal de la práctica. El programa principal se encuentra en el archivo `main.c`. Aquí se realiza la configuración inicial del microcontrolador y se implementa el bucle principal:
 
 ```c
-// Función para alternar la secuencia de los LEDs
-void Toggle_LED_Sequence(uint8_t sequenceIndex)
-{
-  const uint8_t sequences[6][3] = {
-    {1, 2, 3},  // Secuencia 1: LED1, LED2, LED3
-    {1, 3, 2},  // Secuencia 2: LED1, LED3, LED2
-    {2, 1, 3},  // Secuencia 3: LED2, LED1, LED3
-    {2, 3, 1},  // Secuencia 4: LED2, LED3, LED1
-    {3, 2, 1},  // Secuencia 5: LED3, LED2, LED1
-    {3, 1, 2}   // Secuencia 6: LED3, LED1, LED2
-  };
+#include "API_delay.h"
 
-  const uint8_t* sequence = sequences[sequenceIndex];
-
-  for (int i = 0; i < 3; i++) {
-    uint8_t led = sequence[i];
-    HAL_GPIO_WritePin(LD_GPIO_Port[led - 1], LD_Pin[led - 1], GPIO_PIN_SET);
-    HAL_Delay(200);
-    HAL_GPIO_WritePin(LD_GPIO_Port[led - 1], LD_Pin[led - 1], GPIO_PIN_RESET);
-    HAL_Delay(200);
-  }
+// Inicializa la estructura de retardo con la duración especificada
+void delayInit(delay_t *delay, tick_t duration) {
+   delay->duration = duration; // Establece la duración del retardo
+   delay->running = false; // Establece el estado de ejecución del retardo como falso (no en ejecución)
 }
 
-int main(void)
-{
-  // Configuración inicial del microcontrolador
-
-  uint8_t sequenceIndex = 0; // Variable para controlar el índice de la secuencia de LEDs
-
-  while (1)
-  {
-    // Verificar si el pulsador ha sido presionado
-    if (HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin) == GPIO_PIN_RESET)
-    {
-      HAL_Delay(50);
-      if (HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin) == GPIO_PIN_RESET)
-      {
-        sequenceIndex++;
-        if (sequenceIndex >= 6)
-        {
-          sequenceIndex = 0;
-        }
-        while (HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin) == GPIO_PIN_RESET)
-        {
-          // Esperar a que se suelte el pulsador
-        }
+// Lee el estado del retardo
+// Devuelve true si el retardo ha terminado, o false si aún está en curso
+bool_t delayRead(delay_t *delay) {
+   if (!delay->running) { // Si el retardo no está en ejecución
+      delay->startTime = HAL_GetTick(); // Obtiene el tiempo actual y lo guarda como inicio del retardo
+      delay->running = true; // Cambia el estado de ejecución del retardo a verdadero (en ejecución)
+      return false; // Indica que el retardo aún no ha terminado
+   } else { // Si el retardo está en ejecución
+      tick_t currentTime = HAL_GetTick(); // Obtiene el tiempo actual
+      if (currentTime - delay->startTime >= delay->duration) { // Comprueba si el tiempo transcurrido es mayor o igual a la duración del retardo
+         delay->running = false; // Cambia el estado de ejecución del retardo a falso (terminado)
+         return true; // Indica que el retardo ha terminado
+      } else {
+         return false; // Indica que el retardo aún no ha terminado
       }
-    }
+   }
+}
 
-    // Llamar a la función para alternar la secuencia de los LEDs
-    Toggle_LED_Sequence(sequenceIndex);
-  }
+// Actualiza la duración del retardo con el valor especificado
+void delayWrite(delay_t *delay, tick_t duration) {
+   delay->duration = duration; // Actualiza la duración del retardo
 }
 ```
-En el código anterior, se muestra la definición de la función Toggle_LED_Sequence(), que se encarga de alternar la secuencia de los LEDs. Luego, se muestra el bucle principal (while) del programa, donde se verifica si el pulsador ha sido presionado, se realiza el cambio de secuencia y se llama a la función Toggle_LED_Sequence() para encender y apagar los LEDs según el orden de la secuencia seleccionada.
 
 ## API_delay.h
 
