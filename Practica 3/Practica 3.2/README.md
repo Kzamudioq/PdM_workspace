@@ -29,7 +29,7 @@ Puedes encontrar el código y los detalles de la implementación en [este enlace
 
 Además, los archivos principales del proyecto son:
 
-- `API_delay.c`: Este archivo se encuentra en la carpeta `Drivers` que contiene a su vez `API` especificamete en `Src`. Contiene la funciónes necesarias para ejecuta al iniciar el programa. Aquí es donde se encuentra la lógica principal de la práctica.
+- `API_delay.c`: Este archivo se encuentra en la carpeta `Drivers` que contiene a su vez `API` especificamete en `Src`. Contiene la funciónes **delayInit**,**delayRead** y **delayWrite** necesarias para ejecuta al iniciar el programa.
 - `main.h`: Este archivo se encuentra en la carpeta `Core` especificamete en `Inc`. Es un archivo de encabezado (header file) que contiene las declaraciones de las funciones y variables utilizadas en `main.c` y otros archivos del proyecto.
 
 La estructura del repositorio se organiza de esta manera para separar las configuraciones del entorno, los archivos esenciales del proyecto, los controladores del microcontrolador STM32 y los archivos de configuración específicos de la práctica. Esto ayuda a mantener el código ordenado y facilita la navegación y comprensión del proyecto.
