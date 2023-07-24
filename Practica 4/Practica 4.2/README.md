@@ -2,7 +2,11 @@
 
 ## Objetivo
 
-Implementar un módulo de software para trabajar con anti-rebotes por software y utilizarlo para cambiar la frecuencia de toggleo del LED2 en la placa NUCLEO-F429ZI entre 100 ms y 500 ms cada vez que se presione la tecla.
+Implementar un módulo de software para trabajar con anti-rebotes por software y utilizarlo para cambiar la frecuencia de toggleo del LED2 en la placa NUCLEO-F401RE entre 100 ms y 500 ms cada vez que se presione la tecla, como se evidencia en el siguiente video:
+
+
+https://github.com/Kzamudioq/PdM_workspace/assets/138271936/a5aebb6e-15b5-4e48-8f03-59ae022e6e5c
+
 
 ## Estructura de directorios
 
