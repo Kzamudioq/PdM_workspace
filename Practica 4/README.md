@@ -39,7 +39,7 @@ En **API_debounce.h**, ubicar los prototipos de las funciones públicas y las de
 6. Declarar una variable tipo bool_t global privada que se ponga en true cuando ocurra un flanco descendente y se ponga en false cuando se llame a la función readKey().
 7. Implementar un programa que cambie la frecuencia de toggleo del LED2 entre 100 ms y 500 ms cada vez que se presione la tecla. El programa debe usar las funciones anti-rebote del módulo API_debounce y los retardos no bloqueantes del módulo API_delay.
 
-Puedes encontrar el código y los detalles de la implementación en [este enlace](https://github.com/Kzamudioq/PdM_workspace/tree/main/Practica%201/Practica%201.1).
+Puedes encontrar el código y los detalles de la implementación en [este enlace](https://github.com/Kzamudioq/PdM_workspace/tree/main/Practica%204/Practica%204.2).
 
 ## Conclusión 
 
