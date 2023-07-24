@@ -7,7 +7,10 @@ En esta practica se implementar un programa que utilice retardos no bloqueantes 
 
 El pulsador azul (USER_BUTTON) actúa como un interruptor para cambiar entre las dos opciones de secuencia. Cada vez que se presiona el pulsador, se alterna el orden de los LEDs en la secuencia. Esta funcionalidad permite al usuario experimentar con diferentes patrones de iluminación y explorar diferentes combinaciones de LEDs. Puedes ver una demostración del proyecto en acción en el siguiente video:
 
-https://github.com/Kzamudioq/PdM_workspace/assets/138271936/c89f665f-2832-4407-9e63-0152dbb0d0ed
+
+
+https://github.com/Kzamudioq/PdM_workspace/assets/138271936/2f28a9bb-d607-4332-b6fb-bbc66b0754e0
+
 
 
 ## Archivos del Proyecto
@@ -38,7 +41,7 @@ El archivo `STM32F401RETX_RAM.ld` es un script de enlace (linker script) que def
 
 ## API_delay.c
 
-El archivo `main.c` se encuentra en la carpeta `Core`. Contiene la función `main()`, que se ejecuta al iniciar el programa. Aquí se encuentra la lógica principal de la práctica. El programa principal se encuentra en el archivo `main.c`. Aquí se realiza la configuración inicial del microcontrolador y se implementa el bucle principal:
+Este archivo se encuentra en la carpeta `Drivers` que contiene a su vez `API` especificamete en `Src`. Contiene la funciónes **delayInit**,**delayRead** y **delayWrite** necesarias para ejecuta al iniciar el programa:
 
 ```c
 #include "API_delay.h"
@@ -75,9 +78,9 @@ void delayWrite(delay_t *delay, tick_t duration) {
 
 ## API_delay.h
 
-El archivo `main.h` se encuentra en la carpeta `Core`. Es un archivo de encabezado (header file) que contiene las declaraciones de las funciones y variables utilizadas en `main.c` y otros archivos del proyecto. Aquí se definen los prototipos de las funciones principales y las variables globales utilizadas en el proyecto:
+ Este archivo se encuentra en la carpeta `Drivers` que contiene a su vez `API` especificamete en `Inc`. Es un archivo  que contiene las declaraciones de las funciones y variables utilizadas en `API_delay.c` y otros archivos del proyecto:
 
-- La directiva `#ifndef __MAIN_H` y `#define __MAIN_H` aseguran que el contenido del archivo solo se incluya una vez para evitar problemas de duplicación.
+- La directiva `#ifndef __API_delay.h` y `#define __API_delay.h` aseguran que el contenido del archivo solo se incluya una vez para evitar problemas de duplicación.
 
 - El bloque `#ifdef __cplusplus` y `#endif` permite que el archivo sea compatible tanto con el lenguaje C como con el lenguaje C++.
 
