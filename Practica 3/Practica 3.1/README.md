@@ -1,7 +1,11 @@
 # Punto 1: Configuración de Retardos No Bloqueantes
 
 ## Objetivo
-El objetivo de este punto es configurar y utilizar retardos no bloqueantes en un nuevo proyecto basado en el proyecto realizado para la Práctica 2. Los retardos no bloqueantes permitirán generar intervalos de tiempo precisos sin bloquear la ejecución del programa.
+El objetivo de este punto es configurar y utilizar retardos no bloqueantes en un nuevo proyecto basado en el proyecto realizado para la Práctica 2. Los retardos no bloqueantes permitirán generar intervalos de tiempo precisos sin bloquear la ejecución del programa, como se evidencia en el siguiente video:
+
+
+https://github.com/Kzamudioq/PdM_workspace/assets/138271936/dfc39ed2-26d9-4f69-941e-1cb5bfdae6c2
+
 
 ## Configuración de Retardos No Bloqueantes
 Para configurar los retardos no bloqueantes, siga los siguientes pasos:
