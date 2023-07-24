@@ -94,7 +94,7 @@ bool_t readKey(void) {
     return keyStatus; // Devolvemos el estado de la tecla
 }
 ```
-- La variable privada global keyPressed se utiliza para almacenar el estado de la tecla. Se inicializa como false en la función debounceFSM_init, y su valor puede cambiar cuando ocurren flancos ascendentes o descendentes.
+- La variable privada global ´keyPressed´ se utiliza para almacenar el estado de la tecla. Se inicializa como false en la función debounceFSM_init, y su valor puede cambiar cuando ocurren flancos ascendentes o descendentes.
 
 - debounceFSM_init(debounceState_t *currentState, debounceState_t initialValue): Esta función inicializa la MEF Anti-Rebote. Recibe como argumentos un puntero a la variable currentState, que almacenará el estado actual de la MEF, y un valor initialValue, que indica el estado inicial de la MEF. Además, inicializa la variable global keyPressed en false.
 
