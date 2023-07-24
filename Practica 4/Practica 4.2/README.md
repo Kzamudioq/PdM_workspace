@@ -101,3 +101,58 @@ bool_t readKey(void) {
 - debounceFSM_update(debounceState_t *currentState, delay_t *delay): Esta función actualiza la MEF Anti-Rebote en cada iteración del programa principal. Recibe como argumentos un puntero a la variable currentState, que almacena el estado actual de la MEF, y un puntero a la estructura delay_t, que es utilizada para implementar los retardos no bloqueantes. Dependiendo del estado actual de la MEF y del estado del pulsador, se realiza la transición entre estados y se activa la variable keyPressed en caso de que ocurra un flanco ascendente o descendente.
 
 - bool_t readKey(void): Esta función se utiliza para leer el estado interno de la MEF Anti-Rebote y determinar si ocurrió un flanco descendente en el pulsador. Retorna true si ocurrió un flanco descendente y false en caso contrario. Además, resetea el estado interno de la MEF almacenado en keyPressed para futuros flancos.
+
+## Contenido de "Implementación del programa principal (main.c)"
+
+El programa principal comienza incluyendo los archivos de cabecera necesarios: main.h, API_debounce.h y API_delay.h. Luego, se declaran las siguientes variables globales privadas:
+```c
+delay_t ledDelay; // Estructura para el retardo no bloqueante
+debounceState_t state; // Estado actual de la MEF Anti-Rebote
+UART_HandleTypeDef huart2; // Handler de UART para comunicación serial (si es necesario)
+```
+La función main se inicia con la configuración de los periféricos y la inicialización de las variables globales mencionadas anteriormente. A continuación, se inicia un bucle infinito que contiene la lógica principal del programa:
+```c
+int main(void)
+{
+  HAL_Init();
+  SystemClock_Config();
+  MX_GPIO_Init();
+  MX_USART2_UART_Init();
+
+  /* Initialize LED and button */
+  delayInit(&ledDelay, 40); // 40 ms delay
+  debounceFSM_init(&state, BUTTON_UP);
+
+  uint32_t toggleFrequency = 100; // Initial toggle frequency: 100 ms
+
+  /* Infinite loop */
+  while (1)
+  {
+      debounceFSM_update(&state, &ledDelay);
+
+      if (readKey())
+      {
+          // Change toggle frequency between 100 ms and 500 ms
+          if (toggleFrequency == 100)
+          {
+              toggleFrequency = 500;
+          }
+          else
+          {
+              toggleFrequency = 100;
+          }
+
+          delayWrite(&ledDelay, toggleFrequency);
+      }
+
+      // Toggle LED2 every delay duration
+      if (delayRead(&ledDelay))
+      {
+          HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+      }
+  }
+
+  return 0;
+}
+```
+En el bucle infinito, se actualiza la MEF Anti-Rebote mediante la función debounceFSM_update(&state, &ledDelay). Luego, se verifica si ocurrió un flanco descendente en el pulsador utilizando la función readKey(). Si ocurrió un flanco, se cambia la frecuencia de toggleo entre 100 ms y 500 ms y se actualiza la variable ledDelay con el nuevo valor. Finalmente, se realiza el toggle del LED2 cada vez que se alcanza el retardo establecido en ledDelay.
