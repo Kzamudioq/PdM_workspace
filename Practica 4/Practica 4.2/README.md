@@ -42,4 +42,62 @@ En este archivo de cabecera, hemos definido los prototipos de las funciones púb
 La función debounceFSM_init() se encarga de inicializar la MEF Anti-Rebote. La función debounceFSM_update() actualiza la MEF Anti-Rebote y controla los flancos del pulsador. La función readKey() es utilizada para leer el estado interno de la MEF y determinar si la tecla fue presionada.
 
 ## Contenido de "API_debounce.c"
+```c
+#include "API_debounce.h"
 
+// Variable privada global para almacenar el estado de la tecla
+static bool_t keyPressed = false;
+
+void debounceFSM_init(debounceState_t *currentState, debounceState_t initialValue) {
+    *currentState = initialValue;
+    keyPressed = false; // Inicializamos la variable global keyPressed en falso
+}
+
+void debounceFSM_update(debounceState_t *currentState, delay_t *delay) {
+    switch (*currentState) {
+        case BUTTON_UP:
+            if (HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin) == GPIO_PIN_RESET) {
+                *currentState = BUTTON_FALLING;
+            }
+            break;
+        case BUTTON_FALLING:
+            if (HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin) == GPIO_PIN_RESET && delayRead(delay)) {
+                *currentState = BUTTON_DOWN;
+                keyPressed = true; // Se activó un flanco descendente, establecemos keyPressed en true
+            } else {
+                *currentState = BUTTON_UP;
+            }
+            break;
+        case BUTTON_DOWN:
+            if (HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin) == GPIO_PIN_SET) {
+                *currentState = BUTTON_RAISING;
+            }
+            break;
+        case BUTTON_RAISING:
+            if (HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin) == GPIO_PIN_SET && delayRead(delay)) {
+                *currentState = BUTTON_UP;
+                keyPressed = false; // Se activó un flanco ascendente, establecemos keyPressed en false
+            } else {
+                *currentState = BUTTON_DOWN;
+            }
+            break;
+        default:
+            // Manejo de estado inesperado
+            Error_Handler();
+            break;
+    }
+}
+
+bool_t readKey(void) {
+    bool_t keyStatus = keyPressed; // Leemos el estado de la tecla almacenado en keyPressed
+    keyPressed = false; // Reseteamos el estado de keyPressed para la siguiente lectura
+    return keyStatus; // Devolvemos el estado de la tecla
+}
+```
+- La variable privada global keyPressed se utiliza para almacenar el estado de la tecla. Se inicializa como false en la función debounceFSM_init, y su valor puede cambiar cuando ocurren flancos ascendentes o descendentes.
+
+- debounceFSM_init(debounceState_t *currentState, debounceState_t initialValue): Esta función inicializa la MEF Anti-Rebote. Recibe como argumentos un puntero a la variable currentState, que almacenará el estado actual de la MEF, y un valor initialValue, que indica el estado inicial de la MEF. Además, inicializa la variable global keyPressed en false.
+
+- debounceFSM_update(debounceState_t *currentState, delay_t *delay): Esta función actualiza la MEF Anti-Rebote en cada iteración del programa principal. Recibe como argumentos un puntero a la variable currentState, que almacena el estado actual de la MEF, y un puntero a la estructura delay_t, que es utilizada para implementar los retardos no bloqueantes. Dependiendo del estado actual de la MEF y del estado del pulsador, se realiza la transición entre estados y se activa la variable keyPressed en caso de que ocurra un flanco ascendente o descendente.
+
+- bool_t readKey(void): Esta función se utiliza para leer el estado interno de la MEF Anti-Rebote y determinar si ocurrió un flanco descendente en el pulsador. Retorna true si ocurrió un flanco descendente y false en caso contrario. Además, resetea el estado interno de la MEF almacenado en keyPressed para futuros flancos.
