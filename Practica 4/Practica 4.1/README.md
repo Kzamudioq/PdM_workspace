@@ -65,17 +65,17 @@ La MEF se representará mediante un diagrama de estados con las transiciones ent
  La anterior función (*main()*) es el punto de entrada del programa. Su objetivo es inicializar el hardware, configurar la MEF Anti-Rebote y controlar los LEDs en función 
  del estado del pulsador.
 
-    ```c
+  ```c
     /* Inicializa la máquina de estados debounce */
     void debounceFSM_init(debounceState_t *currentState, debounceState_t initialValue)
     {
      // Establecer el estado inicial de la MEF
      *currentState = initialValue;
     }
-    ```
+  ```
 La función debounceFSM_init() inicializa la MEF Anti-Rebote con el estado inicial especificado. Recibe como parámetros un puntero al estado actual de la MEF (currentState) y el estado inicial deseado (initialValue).
 
-    ```c
+  ```c
     /* Actualiza la máquina de estados debounce */
     void debounceFSM_update(debounceState_t *currentState, delay_t *delay)
     {
@@ -129,31 +129,31 @@ La función debounceFSM_init() inicializa la MEF Anti-Rebote con el estado inici
       }
     }
 
-    ```
+  ```
   La función debounceFSM_update() se encarga de actualizar la MEF Anti-Rebote y controlar los flancos del pulsador. Recibe como parámetros un puntero al estado actual de 
   la MEF (currentState) y un puntero a la estructura de retardo no bloqueante para controlar el LED (delay).
 
   Esta función contiene un switch-case que maneja los diferentes estados de la MEF Anti-Rebote y toma acciones según los flancos detectados en el pulsador. También utiliza 
   el retardo no bloqueante para controlar el LED.
 
-    ```c
+  ```c
     /* Maneja el evento de botón presionado */
     void buttonPressed(void)
     {
       // Invertir el estado del LED1
       HAL_GPIO_TogglePin(LD1_GPIO_Port, LD1_Pin);
     }
-    ```
+  ```
   La función buttonPressed() se encarga de manejar el evento de botón presionado. Es llamada cuando se detecta un flanco descendente del pulsador. En este caso, invierte 
   el estado del LED1, es decir, si estaba encendido lo apaga, y si estaba apagado lo enciende.
 
-      ```c
+  ```c
     /* Maneja el evento de botón soltado */
     void buttonReleased(void)
      {
        // Invertir el estado del LED3
        HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
     }
-    ```
+  ```
   La función buttonReleased() se encarga de manejar el evento de botón soltado. Es llamada cuando se detecta un flanco ascendente del pulsador. En este caso, invierte el estado del LED3, es decir, si estaba encendido lo apaga, y si estaba apagado lo enciende.
   
