@@ -3,7 +3,8 @@
 ## Objetivo
 El objetivo de esta práctica es implementar una MEF (Máquina de Estados Finitos) para trabajar con anti-rebotes por software en la placa STM 32 NUCLEO-F401RE. Se utilizará un o dos LEDs para mostrar el estado y una tecla para generar acciones o eventos ante un flanco descendente o ascendente.
 
-![IMG20230709235003](https://github.com/Kzamudioq/PdM_workspace/tree/main/Practica%204/Practica%204.1)
+
+![IMG20230709235003](https://github.com/Kzamudioq/PdM_workspace/assets/138271936/f6a39f17-df4a-41a4-b193-f8de43e9430a)
 
 
 ## Punto 1: Implementación de la MEF Anti-rebote en main.c
@@ -20,7 +21,7 @@ El objetivo de esta práctica es implementar una MEF (Máquina de Estados Finito
    void buttonPressed();       // debe invertir el estado del LED1
    void buttonReleased();      // debe invertir el estado del LED3
 
-Puedes encontrar el código y los detalles de la implementación en [este enlace](https://github.com/Kzamudioq/PdM_workspace/tree/main/Practica%201/Practica%201.1).
+Puedes encontrar el código y los detalles de la implementación en [este enlace](https://github.com/Kzamudioq/PdM_workspace/tree/main/Practica%204/Practica%204.1).
 
 ## Punto 2: Implementación del módulo de software API_debounce
 1. Crear un nuevo proyecto como copia del proyecto con la implementación del punto 1 de la práctica 4.
