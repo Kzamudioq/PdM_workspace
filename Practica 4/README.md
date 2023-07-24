@@ -9,8 +9,6 @@ El objetivo de esta práctica es implementar una MEF (Máquina de Estados Finito
 
 ![MEF Diagram](https://github.com/Kzamudioq/PdM_workspace/assets/138271936/cbd41b41-f591-4ac2-ba54-c7b0e47fe377)
 
-   ![MEF Diagram](mef_diagram.png)
-
 3. El estado inicial de la MEF debe ser BUTTON_UP.
 4. Implementar las siguientes funciones dentro de "main.c":
    ```c
