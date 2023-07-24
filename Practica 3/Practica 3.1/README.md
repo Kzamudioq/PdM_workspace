@@ -26,6 +26,35 @@ void delayInit(delay_t *delay, tick_t duration);
 bool_t delayRead(delay_t *delay);
 void delayWrite(delay_t *delay, tick_t duration);
 ```
+5. En el archivo "API_delay.c", ubique la implementación para los retardos no bloqueantes:
+```c
+#include "API_delay.h"
+
+void delayInit(delay_t *delay, tick_t duration) {
+   delay->startTime = 0;
+   delay->duration = duration;
+   delay->running = false;
+}
+
+bool_t delayRead(delay_t *delay) {
+   if (!delay->running)
+      return false;
+
+   tick_t currentTime = HAL_GetTick();
+   if (currentTime - delay->startTime >= delay->duration) {
+      delay->running = false;
+      return true;
+   }
+
+   return false;
+}
+
+void delayWrite(delay_t *delay, tick_t duration) {
+   delay->startTime = HAL_GetTick();
+   delay->duration = duration;
+   delay->running = true;
+}
+``` 
 *Nota*: Para que las carpetas agregadas sean reconocidas por el compilador, asegúrese de incluirlas en el "include path" de su proyecto. Haga clic derecho sobre la carpeta con los archivos de encabezado y seleccione la opción "Add/Remove Include Path".
 
 Uso de Retardos No Bloqueantes
