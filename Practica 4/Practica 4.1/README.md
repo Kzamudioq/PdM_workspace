@@ -3,6 +3,9 @@
 ## Objetivo
 El objetivo de este punto es implementar una MEF (Máquina de Estados Finitos) para trabajar con anti-rebotes por software en la placa NUCLEO-F401RE. Se utilizará dos LED para mostrar el estado y una tecla para generar acciones o eventos ante un flanco descendente o ascendente como se evudencia en el siguiente video:
 
+https://github.com/Kzamudioq/PdM_workspace/assets/138271936/877fd9fa-adfd-44b5-9fd2-8a9f64bb42ad
+
+
 ## Estructura de la MEF
 La MEF anti-rebote se implementará utilizando los siguientes estados:
 
