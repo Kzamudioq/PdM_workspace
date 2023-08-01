@@ -32,14 +32,11 @@ uartSendString(uint8_t *pstring) recibe un puntero a un string que se desea envi
 uartSendStringSize(uint8_t * pstring, uint16_t size) recibe un puntero a un string que se desea enviar por la UART y un entero con la cantidad de caracteres que debe enviar. La función debe utilizar HAL_UART_Transmit(...) para transmitir el string.
 
 ## Punto 2
+I
+mplementar un programa que utilice el módulo de UART para informar al usuario cuando se producen los flancos ascendente y descendente. El programa debe estar desarrollado para el microcontrolador Nucleo F401RE y una protoboard con dos LEDs.
 
-Sobre el ejercicio de la práctica 4, implementar un programa que utilice el módulo de UART para informar al usuario cuando se producen los flancos ascendente y descendente.
+Nota: La implementación específica del programa que utiliza el módulo de UART y los LEDs no está indicada en el enunciado original. Se asume para el desarrollo del código, que es necesario para interactuar con los LEDs y detectar los flancos ascendentes y descendentes en función de lo que se haya hecho en la práctica 4 del punto 2.
 
-El programa debe estar desarrollado para el microcontrolador Nucleo F401RE y una protoboard con dos LEDs.
+Ademas se tiene presente  utilizar el módulo de UART, donde se debe incluir el archivo de cabecera API_uart.h en tu programa y asegurarte de que los archivos API_uart.c y API_uart.h se encuentren en las rutas /drivers/API/src y /drivers/API/inc, respectivamente.
 
-Nota: La implementación específica del programa que utiliza el módulo de UART y los LEDs no está indicada en el enunciado original. Se asume que se debe desarrollar el código adicional necesario para interactuar con los LEDs y detectar los flancos ascendentes y descendentes en función de lo que se haya hecho en la práctica 4 del punto 2.
-
-Recuerda que para utilizar el módulo de UART, debes incluir el archivo de cabecera API_uart.h en tu programa y asegurarte de que los archivos API_uart.c y API_uart.h se encuentren en las rutas /drivers/API/src y /drivers/API/inc, respectivamente.
-
-Además, debes tener configurada correctamente la comunicación UART con el hardware correspondiente del microcontrolador (pines, velocidad de transmisión, etc.) para que el módulo funcione adecuadamente.
 
