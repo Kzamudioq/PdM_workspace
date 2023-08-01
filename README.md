@@ -35,7 +35,8 @@ A continuación, se encuentran los enlaces a las prácticas realizadas durante e
 2. [Práctica 2](https://github.com/Kzamudioq/PdM_workspace/tree/main/Practica%202)
 3. [Práctica 3](https://github.com/Kzamudioq/PdM_workspace/tree/main/Practica%203)
 4. [Práctica 4](https://github.com/Kzamudioq/PdM_workspace/tree/main/Practica%204)
-
+5. [Práctica 5](https://github.com/Kzamudioq/PdM_workspace/tree/main/Practica%205)
+   
 Estos enlaces te llevarán a los respectivos repositorios donde encontrarás los archivos y detalles de cada práctica.
 
 ## Autora
