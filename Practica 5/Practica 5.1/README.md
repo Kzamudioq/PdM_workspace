@@ -19,7 +19,7 @@ Para comenzar, se debe crear un archivo fuente `API_uart.c` junto con su corresp
                                 │                              │
                           ┌─────┴───────┐               ┌──────┴──────┐
                           │             │               │             │ 
-                          │  uartSend   │◀─────────────│  uartSend   │  
+                          │  uartSend   │◀───────────── │  uartSend   │  
                           │    String   │               │    String   │
                           └─────┬───────┘               └─────┬───────┘ 
                                 │                              │
@@ -27,7 +27,7 @@ Para comenzar, se debe crear un archivo fuente `API_uart.c` junto con su corresp
                                 ▼                              ▼
                           ┌─────┴───────┐               ┌─────┴───────┐
                           │             │               │             │
-                          │  uartSend   │◀─────────────│  uartSend   │
+                          │  uartSend   │◀───────────── │  uartSend   │
                           │ StringSize  │               │ StringSize  │
                           └─────────────┘               └─────────────┘
 
