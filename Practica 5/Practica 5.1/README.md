@@ -11,25 +11,27 @@ Para comenzar, se debe crear un archivo fuente `API_uart.c` junto con su corresp
                           API_uart.h                      API_uart.c
                           ┌────────────┐                  ┌────────────┐
                           │            │                  │            │
-                          │  uartInit()│<────────────────▶│uartInit()  │
+                          │ uartInit() │<────────────────▶│ uartInit()│
                           │            │                  │            │
                           └────────────┘                  └────────────┘
                                 ▲                              ▲
                                 │                              │
                                 │                              │
-                          ┌─────┴───────┐               ┌─────┴───────┐
+                          ┌─────┴───────┐               ┌──────┴──────┐
                           │             │               │             │
-                          │uartSendString│◀─────────────│uartSendString│
-                          │             │               │             │
-                          └─────┬───────┘               └─────┬───────┘
+                          │  uartSend   │◀───────────── │  uartSend   │  
+                          │    String   │               │    String    │
+                          └─────┬───────┘               └──────┬───────┘
                                 │                              │
                                 │                              │
                                 ▼                              ▼
                           ┌─────┴───────┐               ┌─────┴───────┐
-                          │             │               │            │
-                          │uartSendStringSize│◀──────────│uartSendStringSize│
-                          │            │                │            │
-                          └────────────┘                └────────────┘
+                          │             │               │             │
+                          │  uartSend   │◀─────────────│  uartSend   │
+                          │ StringSize  │               │ StringSize  │
+                          └─────────────┘               └─────────────┘
+
+Este diagrama representa las funciones y su flujo dentro del módulo UART. La función `uartInit()` realiza la inicialización de la UART y puede imprimir un mensaje a través de la terminal serie. Las funciones `uartSendString()` y `uartSendStringSize()` se encargan de enviar datos a través de la UART utilizando la función `HAL_UART_Transmit(...)`. Estas funciones interactúan con el hardware y proporcionan una interfaz para la transmisión de datos serie desde el microcontrolador hacia otros dispositivos.
 
 ## API_uart.h - Prototipos de Funciones Públicas
 
