@@ -37,6 +37,6 @@ mplementar un programa que utilice el módulo de UART para informar al usuario c
 
 Nota: La implementación específica del programa que utiliza el módulo de UART y los LEDs no está indicada en el enunciado original. Se asume para el desarrollo del código, que es necesario para interactuar con los LEDs y detectar los flancos ascendentes y descendentes en función de lo que se haya hecho en la práctica 4 del punto 2.
 
-Ademas se tiene presente  utilizar el módulo de UART, donde se debe incluir el archivo de cabecera API_uart.h en tu programa y asegurarte de que los archivos API_uart.c y API_uart.h se encuentren en las rutas /drivers/API/src y /drivers/API/inc, respectivamente.
+Ademas se tiene presente  utilizar el módulo de UART, donde se debe incluir el archivo de cabecera API_uart.h en tu programa y asegurarse de que los archivos API_uart.c y API_uart.h se encuentren en las rutas /drivers/API/src y /drivers/API/inc, respectivamente.
 
 
