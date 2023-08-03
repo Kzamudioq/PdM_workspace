@@ -18,10 +18,10 @@ Para comenzar, se debe crear un archivo fuente `API_uart.c` junto con su corresp
                                 │                              │
                                 │                              │
                           ┌─────┴───────┐               ┌──────┴──────┐
-                          │             │               │             │
-                          │  uartSend   │◀───────────── │  uartSend   │  
-                          │    String   │               │    String    │
-                          └─────┬───────┘               └──────┬───────┘
+                          │             │               │             │ 
+                          │  uartSend   │◀─────────────│  uartSend   │  
+                          │    String   │               │    String   │
+                          └─────┬───────┘               └─────┬───────┘ 
                                 │                              │
                                 │                              │
                                 ▼                              ▼
