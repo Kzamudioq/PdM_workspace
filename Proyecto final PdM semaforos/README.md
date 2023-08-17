@@ -1,10 +1,17 @@
 # Proyecto Semáforo Inteligente
 
-![Semáforo](link_to_image)
+
 
 ## Descripción
 
 ¡Bienvenido al proyecto del Semáforo Inteligente! En este emocionante proyecto, hemos creado un sistema de semáforo avanzado utilizando tecnologías de microcontroladores y programación en C. Este semáforo no es solo un sistema de control de tráfico básico, ¡es inteligente y receptivo a su entorno!
+
+## Componentes Hardware Utilizados
+
+- 6 LEDs para representar las luces de los semáforos.
+- 2 placas de semáforos Arduino para controlar los LEDs.
+- Cables macho para las conexiones entre los componentes.
+- Placa STM32 Nucleo F401RE para la lógica de control.
 
 ## Características Destacadas
 
@@ -22,17 +29,30 @@ El corazón del funcionamiento de nuestro Semáforo Inteligente es la implementa
 
 La MEF de Secuencia de Semáforos controla el ciclo de cambio de luces entre los semáforos 1 y 2. Se basa en los tiempos predefinidos para cada estado (rojo, amarillo, verde) y cambia de estado después de alcanzar el tiempo correspondiente. Esta MEF asegura que los semáforos cambien en sincronización.
 
+![image](https://github.com/Kzamudioq/PdM_workspace/assets/138271936/1ace1c23-2724-49d4-a5f1-a8eef378a4f7)
+
+
 ### MEF de Interacción con el Botón
 
 La MEF de Interacción con el Botón monitorea el estado del botón interactivo. Detecta si el botón ha sido presionado o liberado y actúa en consecuencia. Si el botón se presiona, la MEF cambia la fase actual de ambos semáforos a amarillo, creando una fase de precaución. Esta MEF garantiza una respuesta rápida y precisa al botón del usuario.
+![image](https://github.com/Kzamudioq/PdM_workspace/assets/138271936/1bc0ee31-5680-4248-9bb3-918cf02ebd3f)
+
+
+## Exploración del Código
+
+El archivo `main.c` contiene el código principal para el funcionamiento del semáforo inteligente. Aquí se inicializan las MEFs, se controlan los LEDs y se maneja la interacción con el botón y la comunicación serial.
+
+- La función `api_semaforo_init()` inicializa los LEDs y realiza un efecto visual al encenderlos y apagarlos.
+- `semaphore_controlLEDs()` controla los LEDs según los estados de los semáforos.
+- `api_semaforo_update()` actualiza el estado de las MEFs y controla la lógica de cambio de estados y las transiciones.
 
 ## Configuración y Uso
 
 1. **Herramientas Necesarias:** Asegúrate de tener acceso a las herramientas de desarrollo necesarias, como el entorno de desarrollo integrado y las bibliotecas requeridas.
 
-2. **Conexiones de Hardware:** Asegúrate de conectar correctamente los componentes según el esquema de conexiones proporcionado en el proyecto.
+2. **Conexiones de Hardware:** Conecta los LEDs, las placas de semáforos Arduino y el botón según el esquema de conexiones proporcionado en el proyecto.
 
-3. **Cargar el Código:** Carga el código fuente proporcionado en tu microcontrolador utilizando las herramientas de programación adecuadas.
+3. **Cargar el Código:** Carga el código fuente proporcionado en tu microcontrolador STM32 Nucleo F401RE utilizando las herramientas de programación adecuadas.
 
 4. **Interacción:** Observa cómo el semáforo sigue su secuencia y reacciona al botón interactivo. Utiliza la comunicación serial para ver los mensajes informativos.
 
@@ -42,4 +62,3 @@ Siéntete libre de contribuir a este proyecto. Puedes agregar nuevas funciones, 
 
 ## Créditos
 
-Este proyecto fue desarrollado por [Tu Nombre] como parte del trabajo final para [Nombre del Curso o Asignatura]. Agradecemos a [Profesor/Instructor] por su orientación y apoyo durante el proceso de desarrollo.
