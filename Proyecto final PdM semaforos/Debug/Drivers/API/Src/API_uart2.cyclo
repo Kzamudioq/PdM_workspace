@@ -1,0 +1,2 @@
+../Drivers/API/Src/API_uart2.c:8:6:API_UART2_Init	2
+../Drivers/API/Src/API_uart2.c:29:6:API_UART2_SendMessage	2
