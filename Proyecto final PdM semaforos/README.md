@@ -1,4 +1,4 @@
-# Proyecto Semáforo Inteligente
+# Proyecto intersección semaforizada
 
 
 
@@ -49,6 +49,19 @@ El archivo `main.c` contiene el código principal para el funcionamiento del sem
 - `semaphore_controlLEDs()` controla los LEDs según los estados de los semáforos.
 - `api_semaforo_update()` actualiza el estado de las MEFs y controla la lógica de cambio de estados y las transiciones.
 
+## Estados, Eventos y Transiciones en las MEFs
+
+- **MEF de Secuencia de Semáforos:**
+  - Estados: Rojo, Amarillo, Verde.
+  - Eventos: Paso del tiempo.
+  - Transiciones: Rojo -> Amarillo -> Verde -> Amarillo.
+
+- **MEF de Interacción con el Botón:**
+  - Estados: Botón presionado, Botón liberado.
+  - Eventos: Cambio de estado del botón.
+  - Transiciones: Botón presionado -> Botón liberado (si se cumplen las condiciones).
+
+
 ## Configuración y Uso
 
 1. **Herramientas Necesarias:** Asegúrate de tener acceso a las herramientas de desarrollo necesarias, como el entorno de desarrollo integrado y las bibliotecas requeridas.
@@ -64,4 +77,4 @@ El archivo `main.c` contiene el código principal para el funcionamiento del sem
 Siéntete libre de contribuir a este proyecto. Puedes agregar nuevas funciones, mejorar la eficiencia del código o realizar ajustes en la secuencia de luces o en las MEFs. ¡Esperamos ver tus contribuciones!
 
 ## Créditos
-
+Este proyecto fue desarrollado por Karen Tatiana Zamudio como parte del trabajo final para programacion de microcontroladores. Agradecemos a Patricio Bos por su orientación y apoyo durante el proceso de desarrollo.
