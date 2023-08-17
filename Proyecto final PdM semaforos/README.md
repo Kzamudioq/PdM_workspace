@@ -2,6 +2,13 @@
 
 
 
+
+
+https://github.com/Kzamudioq/PdM_workspace/assets/138271936/d22083ae-cab8-4b6e-b80a-3b24f6031ce1
+
+
+
+
 ## Descripción
 
 ¡Bienvenido al proyecto del Semáforo Inteligente! En este emocionante proyecto, hemos creado un sistema de semáforo avanzado utilizando tecnologías de microcontroladores y programación en C. Este semáforo no es solo un sistema de control de tráfico básico, ¡es inteligente y receptivo a su entorno!
