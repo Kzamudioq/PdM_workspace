@@ -8,6 +8,9 @@
 
 ## Componentes Hardware Utilizados
 
+![image](https://github.com/Kzamudioq/PdM_workspace/assets/138271936/fbc3e0a5-45ed-4bd5-9736-347dae7d77a5)
+
+
 - 6 LEDs para representar las luces de los semáforos.
 - 2 placas de semáforos Arduino para controlar los LEDs.
 - Cables macho para las conexiones entre los componentes.
