@@ -86,31 +86,82 @@ En el proyecto, se utilizó el sensor DHT22 para medir la temperatura y la humed
 
 La función `DHT22_Start()` se encarga de iniciar la comunicación con el sensor DHT22. Aquí se describen los pasos clave de esta función:
 
+```c
+uint8_t DHT22_Start(void)
+{
+  uint8_t Response = 0;
+  GPIO_InitTypeDef GPIO_InitStructPrivate = {0};
+  GPIO_InitStructPrivate.Pin = DHT22_Pin;
+  GPIO_InitStructPrivate.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStructPrivate.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStructPrivate.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(DHT22_GPIO_Port, &GPIO_InitStructPrivate); // set the pin as output
+  HAL_GPIO_WritePin (DHT22_GPIO_Port, DHT22_Pin, 0);   // pull the pin low
+  microDelay (1300);   // wait for 1300us
+  HAL_GPIO_WritePin (DHT22_GPIO_Port, DHT22_Pin, 1);   // pull the pin high
+  microDelay (30);   // wait for 30us
+  GPIO_InitStructPrivate.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStructPrivate.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(DHT22_GPIO_Port, &GPIO_InitStructPrivate); // set the pin as input
+  microDelay (40);
+  if (!(HAL_GPIO_ReadPin (DHT22_GPIO_Port, DHT22_Pin)))
+  {
+    microDelay (80);
+    if ((HAL_GPIO_ReadPin (DHT22_GPIO_Port, DHT22_Pin))) Response = 1;
+  }
+  pMillis = HAL_GetTick();
+  cMillis = HAL_GetTick();
+  while ((HAL_GPIO_ReadPin (DHT22_GPIO_Port, DHT22_Pin)) && pMillis + 2 > cMillis)
+  {
+    cMillis = HAL_GetTick();
+  }
+  return Response;
+}
+```
 1. Configuración del pin GPIO como salida y ponerlo en bajo para indicar al sensor que se solicita información.
-
 2. Espera de un tiempo específico para permitir que el sensor reconozca la señal de inicio.
-
 3. Poner el pin del sensor en alto durante un corto período y esperar para que el sensor responda.
-
 4. Configurar el pin GPIO como entrada con resistencia pull-up para que el sensor pueda responder.
-
 5. Verificar si el sensor responde, lo que indica que está listo para transmitir datos.
 
 #### Lectura de Datos
 
 La función `DHT22_Read()` se utiliza para leer datos del sensor DHT22. Aquí se detallan los pasos involucrados:
 
+```c
+uint8_t DHT22_Read(void)
+{
+  uint8_t a,b = 0;
+  for (a=0;a<8;a++)
+  {
+    pMillis = HAL_GetTick();
+    cMillis = HAL_GetTick();
+    while (!(HAL_GPIO_ReadPin (DHT22_GPIO_Port, DHT22_Pin)) && pMillis + 2 > cMillis)
+    {  // wait for the pin to go high
+      cMillis = HAL_GetTick();
+    }
+    microDelay (40);   // wait for 40 us
+    if (!(HAL_GPIO_ReadPin (DHT22_GPIO_Port, DHT22_Pin)))   // if the pin is low
+      b&= ~(1<<(7-a));
+    else
+      b|= (1<<(7-a));
+    pMillis = HAL_GetTick();
+    cMillis = HAL_GetTick();
+    while ((HAL_GPIO_ReadPin (DHT22_GPIO_Port, DHT22_Pin)) && pMillis + 2 > cMillis)
+    {  // wait for the pin to go low
+      cMillis = HAL_GetTick();
+    }
+  }
+  return b;
+}
+```
 1. Esperar a que el sensor eleve el nivel de la señal, indicando la transmisión de un bit.
-
 2. Esperar un breve tiempo para permitir que el bit se transmita completamente.
-
 3. Leer el estado del pin del sensor y registrar el bit correspondiente.
-
 4. Esperar a que el sensor baje el nivel de la señal para indicar el final de la transmisión del bit actual.
 
 La correcta configuración de los pines GPIO y el uso de la función `microDelay()` son esenciales para lograr una comunicación efectiva con el sensor DHT22.
 
-Recuerda que estos son fragmentos de código clave que resaltan la implementación de los protocolos de comunicación en el proyecto. Debes incorporar esta información en la sección "Desarrollo" de tu README.md y asegurarte de que la introducción, objetivos y conclusiones también estén presentes en el archivo completo.
 
 ## Conclusiones
 
