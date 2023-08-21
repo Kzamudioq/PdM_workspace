@@ -6,7 +6,7 @@ Este proyecto demuestra la implementación de una comunicación maestro-esclavo 
 
 ## Introducción
 
-En este proyecto, se presenta la implementación y explicación de los protocolos de comunicación UART y SPI, así como la configuración de los pines GPIO en placas STM32. Se aborda la comunicación entre dos placas STM32 utilizando los protocolos mencionados y se demuestra cómo transmitir datos de temperatura desde una placa maestro a una placa esclavo, visualizando los resultados en una pantalla DFR0928.
+En este proyecto, se presenta la implementación y explicación de los protocolos de comunicación UART y SPI, así como la configuración de los pines one wire en placas STM32. Se aborda la comunicación entre dos placas STM32 utilizando los protocolos mencionados y se demuestra cómo transmitir datos de temperatura desde una placa maestro a una placa esclavo, visualizando los resultados en una pantalla DFR0928.
 
 ###  Materiales
 
