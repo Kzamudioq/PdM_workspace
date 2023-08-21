@@ -1,0 +1,4 @@
+../Drivers/API/Scr/temperature.c:5:7:convertToCelsius	16	static
+../Drivers/API/Scr/temperature.c:13:7:convertToFahrenheit	16	static
+../Drivers/API/Scr/temperature.c:17:7:calculateHumidity	16	static
+../Drivers/API/Scr/temperature.c:21:9:calculateChecksum	16	static

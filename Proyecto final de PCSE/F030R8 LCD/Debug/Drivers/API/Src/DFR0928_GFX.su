@@ -1,0 +1,16 @@
+../Drivers/API/Src/DFR0928_GFX.c:7:6:drawPixel	24	static
+../Drivers/API/Src/DFR0928_GFX.c:12:6:fillRect	32	static
+../Drivers/API/Src/DFR0928_GFX.c:31:6:writePixel	24	static
+../Drivers/API/Src/DFR0928_GFX.c:36:6:writeLine	48	static
+../Drivers/API/Src/DFR0928_GFX.c:76:7:drawFastVLine	32	static
+../Drivers/API/Src/DFR0928_GFX.c:80:7:drawFastHLine	32	static
+../Drivers/API/Src/DFR0928_GFX.c:85:6:drawLine	40	static
+../Drivers/API/Src/DFR0928_GFX.c:98:6:drawCircle	40	static
+../Drivers/API/Src/DFR0928_GFX.c:132:6:drawCircleHelper	48	static
+../Drivers/API/Src/DFR0928_GFX.c:168:6:fillCircleHelper	40	static
+../Drivers/API/Src/DFR0928_GFX.c:205:6:fillCircle	32	static
+../Drivers/API/Src/DFR0928_GFX.c:213:6:drawRect	24	static
+../Drivers/API/Src/DFR0928_GFX.c:221:6:drawRoundRect	48	static
+../Drivers/API/Src/DFR0928_GFX.c:238:6:fillRoundRect	48	static
+../Drivers/API/Src/DFR0928_GFX.c:250:6:drawTriangle	40	static
+../Drivers/API/Src/DFR0928_GFX.c:258:6:fillTriangle	72	static
