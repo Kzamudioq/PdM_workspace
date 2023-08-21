@@ -34,12 +34,56 @@ Se configuraron los pines de transmisión (TX) y recepción (RX) en ambas placas
 
 ### Protocolo SPI (Serial Peripheral Interface)
 
-Se definieron los pines SCLK, MOSI, MISO y CS en ambas placas para implementar el protocolo SPI. Se enviaron datos de temperatura desde la placa maestro a la pantalla DFR0928 en la placa esclavo utilizando comandos SPI.
+En este proyecto, se implementó el protocolo SPI para la comunicación con la pantalla DFR0928. Este protocolo es utilizado para transferir datos entre dispositivos, donde un dispositivo maestro (en este caso, una placa STM32) controla la comunicación con uno o varios dispositivos esclavos.
+
+#### Funciones Implementadas
+
+Se crearon varias funciones específicas para la comunicación con la pantalla DFR0928 utilizando el protocolo SPI. Estas funciones permiten seleccionar/deseleccionar el dispositivo, enviar comandos y datos, y realizar un reinicio. Aquí están las funciones esenciales:
+
+- `DFR0928_Select()`: Esta función establece el pin de selección en bajo para activar la comunicación con la pantalla.
+
+- `DFR0928_Unselect()`: Esta función establece el pin de selección en alto para finalizar la comunicación con la pantalla.
+
+- `DFR0928_Reset()`: Mediante esta función, se realiza un reinicio del dispositivo DFR0928 utilizando un pin de reinicio.
+
+- `DFR0928_WriteCommand(uint8_t cmd)`: Esta función envía un comando a la pantalla DFR0928 utilizando el protocolo SPI. Se configura el pin DC (Data/Command) para indicar que se está enviando un comando.
+
+- `DFR0928_WriteData(uint8_t* buff, size_t buff_size)`: Con esta función, se envían datos a la pantalla DFR0928. Se configura el pin DC para indicar que se están enviando datos.
 
 ### Configuración de One Wire
 
 Se configuraron un pin GPIO como salida para activar el sensor DHT22 y controlar la pantalla DFR0928. Se demostró cómo la configuración de pines es esencial para el control de dispositivos externos.
+En el proyecto, se utilizó el sensor DHT22 para medir la temperatura y la humedad. La comunicación con este sensor se realizó a través de un protocolo propietario utilizando un pin GPIO. Además, se implementó una función `microDelay()` para generar pausas temporales necesarias en la comunicación.
 
+#### Inicio de la Comunicación
+
+La función `DHT22_Start()` se encarga de iniciar la comunicación con el sensor DHT22. Aquí se describen los pasos clave de esta función:
+
+1. Configuración del pin GPIO como salida y ponerlo en bajo para indicar al sensor que se solicita información.
+
+2. Espera de un tiempo específico para permitir que el sensor reconozca la señal de inicio.
+
+3. Poner el pin del sensor en alto durante un corto período y esperar para que el sensor responda.
+
+4. Configurar el pin GPIO como entrada con resistencia pull-up para que el sensor pueda responder.
+
+5. Verificar si el sensor responde, lo que indica que está listo para transmitir datos.
+
+#### Lectura de Datos
+
+La función `DHT22_Read()` se utiliza para leer datos del sensor DHT22. Aquí se detallan los pasos involucrados:
+
+1. Esperar a que el sensor eleve el nivel de la señal, indicando la transmisión de un bit.
+
+2. Esperar un breve tiempo para permitir que el bit se transmita completamente.
+
+3. Leer el estado del pin del sensor y registrar el bit correspondiente.
+
+4. Esperar a que el sensor baje el nivel de la señal para indicar el final de la transmisión del bit actual.
+
+La correcta configuración de los pines GPIO y el uso de la función `microDelay()` son esenciales para lograr una comunicación efectiva con el sensor DHT22.
+
+Recuerda que estos son fragmentos de código clave que resaltan la implementación de los protocolos de comunicación en el proyecto. Debes incorporar esta información en la sección "Desarrollo" de tu README.md y asegurarte de que la introducción, objetivos y conclusiones también estén presentes en el archivo completo.
 
 ## Conclusiones
 
