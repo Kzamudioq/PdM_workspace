@@ -1,12 +1,9 @@
+
+![image](https://github.com/Kzamudioq/PdM_workspace/assets/138271936/1f974980-4f7d-459e-9394-a240b6df2fda)
+
 # Proyecto intersección semaforizada
 
-
-
-
-
 https://github.com/Kzamudioq/PdM_workspace/assets/138271936/d22083ae-cab8-4b6e-b80a-3b24f6031ce1
-
-
 
 
 ## Descripción
