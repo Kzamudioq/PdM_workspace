@@ -1,3 +1,7 @@
+![image](https://github.com/Kzamudioq/PdM_workspace/assets/138271936/af76cc32-22f3-457b-8ccc-07d7c153652e)
+
+
+
 # Proyecto PCSE: tema de Monitoreo y Visualización de Temperatura “Maestro-Esclavo con STM32”
 
 Este proyecto demuestra la implementación de una comunicación maestro-esclavo entre dos placas STM32 utilizando diferentes protocolos de comunicación. La placa STM32F401RE actúa como maestro y se comunica con la placa STM32F030R8 configurada como esclavo. La comunicación se realiza a través de los protocolos UART y SPI, y los datos de temperatura capturados por un sensor DHT22 se presentan en una pantalla DFR0928.
@@ -84,8 +88,7 @@ static void DFR0928_WriteData(uint8_t* buff, size_t buff_size) {
 
 ### Configuración de One Wire
 
-Se configuraron un pin GPIO como salida para activar el sensor DHT22 y controlar la pantalla DFR0928. Se demostró cómo la configuración de pines es esencial para el control de dispositivos externos.
-En el proyecto, se utilizó el sensor DHT22 para medir la temperatura y la humedad. La comunicación con este sensor se realizó a través de un protocolo propietario utilizando un pin GPIO. Además, se implementó una función `microDelay()` para generar pausas temporales necesarias en la comunicación.
+Se configuraron un pin GPIO como salida para activar el sensor DHT22 y controlar la pantalla DFR0928. Se demostró cómo la configuración de pines es esencial para el control de dispositivos externos. En el proyecto, se utilizó el sensor DHT22 para medir la temperatura y la humedad, la comunicación con este sensor se realizó a través de un protocolo one wire. Además, se implementó una función `microDelay()` para generar pausas temporales necesarias en la comunicación.
 
 #### Inicio de la Comunicación
 
