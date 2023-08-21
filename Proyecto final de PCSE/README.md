@@ -48,7 +48,34 @@ Se crearon varias funciones específicas para la comunicación con la pantalla D
 
 - `DFR0928_WriteCommand(uint8_t cmd)`: Esta función envía un comando a la pantalla DFR0928 utilizando el protocolo SPI. Se configura el pin DC (Data/Command) para indicar que se está enviando un comando.
 
+```c
+static void DFR0928_Select() {
+    HAL_GPIO_WritePin(CS_GPIO_Port, CS_Pin, GPIO_PIN_RESET);
+}
+
+void DFR0928_Unselect() {
+    HAL_GPIO_WritePin(CS_GPIO_Port, CS_Pin, GPIO_PIN_SET);
+}
+
+static void DFR0928_Reset() {
+    HAL_GPIO_WritePin(RT_GPIO_Port, RT_Pin, GPIO_PIN_RESET);
+    HAL_Delay(5);
+    HAL_GPIO_WritePin(RT_GPIO_Port, RT_Pin, GPIO_PIN_SET);
+}
+
+static void DFR0928_WriteCommand(uint8_t cmd) {
+    HAL_GPIO_WritePin(DC_GPIO_Port, DC_Pin, GPIO_PIN_RESET);
+    HAL_SPI_Transmit(&DFR0928_SPI_PORT, &cmd, sizeof(cmd), HAL_MAX_DELAY);
+}
+
+static void DFR0928_WriteData(uint8_t* buff, size_t buff_size) {
+    HAL_GPIO_WritePin(DC_GPIO_Port, DC_Pin, GPIO_PIN_SET);
+    HAL_SPI_Transmit(&DFR0928_SPI_PORT, buff, buff_size, HAL_MAX_DELAY);
+}
+
 - `DFR0928_WriteData(uint8_t* buff, size_t buff_size)`: Con esta función, se envían datos a la pantalla DFR0928. Se configura el pin DC para indicar que se están enviando datos.
+
+```
 
 ### Configuración de One Wire
 
