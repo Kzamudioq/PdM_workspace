@@ -8,11 +8,11 @@ Este proyecto demuestra la implementación de una comunicación maestro-esclavo 
 ![WhatsApp Image 2023-08-21 at 6 19 10 PM](https://github.com/Kzamudioq/PdM_workspace/assets/138271936/e71f1611-975d-48ab-99a1-a6d855e5b61f)
 
 
-## Introducción
+## 1.Introducción
 
 En este proyecto, se presenta la implementación y explicación de los protocolos de comunicación UART y SPI, así como la configuración de los pines one wire en placas STM32. Se aborda la comunicación entre dos placas STM32 utilizando los protocolos mencionados y se demuestra cómo transmitir datos de temperatura desde una placa maestro a una placa esclavo, visualizando los resultados en una pantalla DFR0928.
 
-###  Materiales
+###  1.1. Materiales
 
 ![image](https://github.com/Kzamudioq/PdM_workspace/assets/138271936/f4eb165a-0563-4c8b-b246-b483456439ed)
 
@@ -26,7 +26,7 @@ En este proyecto, se presenta la implementación y explicación de los protocolo
 
 
 
-## Objetivos
+## 2. Objetivos
 
 El objetivo principal de este proyecto es comprender y aplicar los conceptos de comunicación UART y SPI, así como la configuración de pines GPIO en el entorno de desarrollo STM32. Además, se pretende lograr lo siguiente:
 
@@ -35,17 +35,17 @@ El objetivo principal de este proyecto es comprender y aplicar los conceptos de 
 - Demostrar la configuración de pines GPIO para activar sensores y controlar dispositivos externos.
 - Realizar una presentación magistral que explique los protocolos implementados, su funcionamiento y su importancia en sistemas embebidos.
 
-## Desarrollo
+## 3. Desarrollo
 
-### Protocolo UART (Universal Asynchronous Receiver-Transmitter)
+### 3.1. Protocolo UART (Universal Asynchronous Receiver-Transmitter)
 
 Se configuraron los pines de transmisión (TX) y recepción (RX) en ambas placas STM32. Se implementaron funciones para enviar y recibir datos a través de UART, permitiendo la comunicación asincrónica entre las placas.
 
-### Protocolo SPI (Serial Peripheral Interface)
+### 3.2. Protocolo SPI (Serial Peripheral Interface)
 
 En este proyecto, se implementó el protocolo SPI para la comunicación con la pantalla DFR0928. Este protocolo es utilizado para transferir datos entre dispositivos, donde un dispositivo maestro (en este caso, una placa STM32) controla la comunicación con uno o varios dispositivos esclavos.
 
-#### Funciones Implementadas
+#### 3.2.1. Funciones Implementadas
 
 Se crearon varias funciones específicas para la comunicación con la pantalla DFR0928 utilizando el protocolo SPI. Estas funciones permiten seleccionar/deseleccionar el dispositivo, enviar comandos y datos, y realizar un reinicio. Aquí están las funciones esenciales:
 
@@ -86,11 +86,11 @@ static void DFR0928_WriteData(uint8_t* buff, size_t buff_size) {
 
 ```
 
-### Configuración de One Wire
+### 3.3. Configuración de One Wire
 
 Se configuraron un pin GPIO como salida para activar el sensor DHT22 y controlar la pantalla DFR0928. Se demostró cómo la configuración de pines es esencial para el control de dispositivos externos. En el proyecto, se utilizó el sensor DHT22 para medir la temperatura y la humedad, la comunicación con este sensor se realizó a través de un protocolo one wire. Además, se implementó una función `microDelay()` para generar pausas temporales necesarias en la comunicación.
 
-#### Inicio de la Comunicación
+#### 3.3.1. Inicio de la Comunicación
 
 La función `DHT22_Start()` se encarga de iniciar la comunicación con el sensor DHT22. Aquí se describen los pasos clave de esta función:
 
@@ -132,7 +132,7 @@ uint8_t DHT22_Start(void)
 4. Configurar el pin GPIO como entrada con resistencia pull-up para que el sensor pueda responder.
 5. Verificar si el sensor responde, lo que indica que está listo para transmitir datos.
 
-#### Lectura de Datos
+#### 3.3.2. Lectura de Datos
 
 La función `DHT22_Read()` se utiliza para leer datos del sensor DHT22. Aquí se detallan los pasos involucrados:
 
@@ -171,6 +171,6 @@ uint8_t DHT22_Read(void)
 La correcta configuración de los pines GPIO y el uso de la función `microDelay()` son esenciales para lograr una comunicación efectiva con el sensor DHT22.
 
 
-## Conclusiones
+## 4. Conclusiones
 
 Este proyecto permitió adquirir experiencia práctica en la implementación de protocolos de comunicación UART y SPI, así como en la configuración de pines GPIO en placas STM32. La transmisión de datos en tiempo real y su visualización en la pantalla DFR0928 demostraron la importancia de estos conceptos en sistemas embebidos. El proyecto reafirma la relevancia de los protocolos y la configuración de pines en la comunicación efectiva entre dispositivos electrónicos y su aplicabilidad en diversas aplicaciones.
