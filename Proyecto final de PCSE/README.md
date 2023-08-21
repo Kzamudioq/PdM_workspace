@@ -10,11 +10,16 @@ En este proyecto, se presenta la implementación y explicación de los protocolo
 
 ###  Materiales
 
+![image](https://github.com/Kzamudioq/PdM_workspace/assets/138271936/f4eb165a-0563-4c8b-b246-b483456439ed)
+
+
 - Placa STM32 NUCLEO-F401RE (Maestro)
 - Placa STM32 STM32F030R8T6 (Esclavo)
 - Sensor DHT22 para medición de temperatura y humedad
 - Pantalla DFR0928 para visualización de datos
 - Cables de conexión
+
+
 
 
 ## Objetivos
